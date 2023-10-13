@@ -115,7 +115,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  font-size: 22px;
+  font-size: 2.5rem;
   color: Black;
 }
 .card {
@@ -183,9 +183,9 @@
   color: Red;
   font-size: 30px;
 }
-img {
+/* img {
   height: 600px !important;
-}
+} */
 .car {
   align-items: center;
   width: 1550px;
@@ -483,25 +483,20 @@ select {
 .op1 {
   border: 2px solid black;
   padding: 10spx;
-  margin-right: 6%;
-  padding-left: 1%;
-  padding-right: 1%;
+
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
-  font-size: 30px;
+  font-size: 3rem;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-top: 6%;
-  margin-left: 2.8%;
+  margin: 10rem;
+  padding: 2rem;
   background-color: darkkhaki;
 }
+
 .containert2 {
-  max-width: 1300px;
-  width: 100%;
-  margin-left: 17%;
-  margin-top: 3.5%;
-  padding: 0 20px;
-  margin-bottom: 5%;
+  margin: 10rem;
+  font-size: 3rem;
 }
 .OHH {
   border: 2px solid black;
@@ -509,13 +504,15 @@ select {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
-  margin-right: 30%;
-  margin-top: 2%;
-  font-size: 30px;
-  margin-left: 30%;
+  /* margin-right: 30%; */
+  /* margin-top: 2%; */
+  font-size: 3rem;
+  /* margin-left: 30%; */
   text-align: center;
   color: orangered;
   background-color: pink;
+  padding: 1rem;
+  margin: 0 10rem;
 }
 .lp1 {
   border: 2px solid black;
@@ -808,10 +805,27 @@ select {
 }
 
 .section-white {
-  background: #fff;
-  padding: 70px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 10rem;
+  /* overflow: hidden; */
+  text-align: center;
+  gap: 5rem;
 }
-
+.cardi {
+  padding: 1rem;
+  border-radius: 8mm;
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  font-size: 2rem;
+  background: #49ebb5;
+  transition: all 0.2s ease-in;
+}
+.cardi:hover {
+  background: grey;
+  transform: translateY(-1rem);
+}
 .team-item {
   background: #f4f5f6;
   text-align: center;
@@ -997,4 +1011,139 @@ select {
   width: 12rem;
   text-align: center;
   font-size: 1.2rem;
+}
+.CRTTypes,
+.OHH {
+  overflow: auto;
+}
+.ourphotos {
+  border-radius: 50%;
+  width: 14rem;
+}
+.vaipic {
+  width: 15rem;
+}
+.undepic {
+  width: 13rem;
+}
+.signupclass {
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+}
+.signupform {
+  display: grid;
+  font-size: 2rem;
+  gap: 4rem;
+  margin: 2rem;
+  /* justify-content: center; */
+  /* margin-left: 20rem; */
+}
+/* /* .each-input input[type="text"]:focus,
+.each-input input[type="email"]:focus,
+.each-input input:focus {
+  border-color: blue; /* Change border color to blue when focused 
+}  */
+.submitt {
+  width: 10rem;
+  /* margin-left: 29rem; */
+}
+.sub-form {
+  display: flex;
+  justify-content: center;
+}
+.each-input {
+  display: grid;
+  /* grid-template-columns: 0.17fr 0.5fr; */
+  /* grid-template-columns: 20rem 60rem; */
+}
+@media (max-width: 1400px) {
+  .op1 {
+    margin: 8rem;
+  }
+  .OHH {
+    margin: 0 8rem;
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 972px) {
+  .op1 {
+    margin: 5rem;
+    font-size: 2.5rem;
+  }
+  .OHH {
+    margin: 0 5rem;
+  }
+}
+@media (max-width: 620px) {
+  .op1 {
+    margin: 3rem;
+    font-size: 2rem;
+    padding: 1rem;
+  }
+  .OHH {
+    margin: 0 3rem;
+  }
+}
+@media (max-width: 450px) {
+  .op1 {
+    margin: 1rem;
+    padding: 0.8rem;
+    font-size: 1.5rem;
+  }
+  .OHH {
+    margin: 0 1rem;
+    padding: 0rem;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 1000px) {
+  .OHH {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 800px) {
+  .OHH {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 1050px) {
+  .OHH {
+    font-size: 2.1rem;
+  }
+}
+@media (max-width: 2114px) {
+  .section-white {
+    margin: 7rem;
+    gap: 3rem;
+  }
+}
+@media (max-width: 1800px) {
+  .section-white {
+    margin: 4rem;
+    gap: 2rem;
+  }
+}
+@media (max-width: 1800px) {
+  .section-white {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .section-white {
+    gap: 3rem;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+@media (max-width: 570px) {
+  .section-white {
+    margin: 1.5rem;
+  }
+}
+@media (max-width: 420px) {
+  .signupform {
+    font-size: 1.5rem;
+  }
 }

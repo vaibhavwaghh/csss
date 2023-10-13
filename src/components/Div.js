@@ -24,7 +24,7 @@ export function Div({ key1 }) {
   console.log(val1, val2);
   const fontvalue = "3rem";
   const componentstyle = {
-    top: "710px",
+    top: "830px",
     left: val1,
     height: "130px",
     width: "180px",

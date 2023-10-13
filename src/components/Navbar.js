@@ -45,11 +45,11 @@ const Navbar = () => {
           <select value={collisionResolution} onChange={handleSelectChange}>
             <option value="techniques">Table Of Contents</option>
             <option value="open-addressing">Open Addressing</option>
-            <option value="separate-chaining">Separate Chaining</option>
-            <option value="bucket-hashing">Bucket Hashing</option>
             <option value="linear-probbing">Linear Probbing</option>
             <option value="quadratic-probbing">Quadratic Probing</option>
             <option value="double-hashing">Double hashing</option>
+            <option value="separate-chaining">Open Hashing</option>
+            <option value="bucket-hashing">Bucket Hashing</option>
           </select>
           <div class="container">
             <a class="navbar-brand" href="#">
@@ -81,7 +81,7 @@ const Navbar = () => {
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="/services">
+                  <a class="nav-link" href="/about-us">
                     About Us
                   </a>
                 </li>
@@ -89,12 +89,12 @@ const Navbar = () => {
                   {/* <li class="nav-item">
           <a class="nav-link" href="">Simulation</a>
         </li> */}
-                  <a class="nav-link" href="/signup">
+                  <a class="nav-link" href="/contact">
                     Contact
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/Wagh">
+                  <a class="nav-link" href="/simulation">
                     Simulation
                   </a>
                 </li>

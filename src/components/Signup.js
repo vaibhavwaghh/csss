@@ -1,83 +1,157 @@
-import React,{useState} from 'react'
-import sign from "./images/sign.jpg";
-const Signup = () => {
-  
-  const [user,setUser]=useState({
-    name:"",email:"",phone:"",work:"",comment:""});
-    let name,value;
-    const handleInputs =(e) =>{
-      console.log(e);
-      name=e.target.name;
-      value=e.target.value;
-      setUser({...user,[name]:value});
+import React from "react";
 
-    }
-  
+import { useState } from "react";
+import axios from "axios";
+
+function Signup() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [college, setCollege] = useState("");
+  const [year, setYear] = useState("");
+  const [division, setDivision] = useState("");
+  const [review, setReview] = useState("");
+  const [msg, setMsg] = useState("");
+  function hName(e) {
+    setName(e.target.value);
+  }
+  function hEmail(e) {
+    setEmail(e.target.value);
+  }
+  function hPhone(e) {
+    setPhone(e.target.value);
+  }
+  function hCollege(e) {
+    setCollege(e.target.value);
+  }
+  function hYear(e) {
+    setYear(e.target.value);
+  }
+  function hDiv(e) {
+    setDivision(e.target.value);
+  }
+  function hRev(e) {
+    setReview(e.target.value);
+  }
+
+  function save(e) {
+    e.preventDefault();
+    let data = { name, email, phone, college, year, division, review };
+    let url = "http://localhost:9002/save";
+    axios
+      .post(url, data)
+      .then((res) => {
+        alert("WE GOT YOUR RESPONSE. Thank you!!!");
+
+        setTimeout(() => {
+          setName("");
+          setCollege("");
+          setDivision("");
+          setEmail("");
+          setReview("");
+          setPhone("");
+          setYear("");
+        }, 0);
+      })
+      .catch((err) => alert(`Issue is ${err}`));
+  }
   return (
-   
     <>
-      <section className="signup">
-      {/* <img className="signimage" src={sign}></img> */}
-         <div className='container mt-15'>
-          <div className='signup-content'>
-           
-            <div className='signup-form'>
-           
-              <h2  className='form-title'>SignUp</h2>
-             
-             
-              <form className='registration-form' id="registration-form"></form>
-           
-                <div className='form-group'>
-                  
-                
-                  <label htmlFor='name'>
-                  <i class="zmdi zmdi-account"></i>
-                  </label>
-                  <input type="text" name="name" id="name" autoComplete='off' value={user.name} onChange={handleInputs}  placeholder='Your Name' />
-                </div><br></br>
-                <div className='form-group'>
-                  <label htmlFor='email '>
-                  <i class="zmdi zmdi-email material-icons-name "></i>
-                  </label>
-                  <input type="email" name="email" id="email" autoComplete='off'value={user.email} onChange={handleInputs}  placeholder='Your Email'/>
-                </div><br></br>
-                <div className='form-group'>
-                  <label htmlFor='phone'>
-                  <i class="zmdi zmdi-phone-in-talk"></i>
-                  </label>
-                  <input type="number" name="phone" id="phone" autoComplete='off'value={user.phone} onChange={handleInputs}  placeholder='Your Phone Number'/>
-                </div><br></br>
-                <div className='form-group'>
-                  <label htmlFor='work'>
-                  <i class="zmdi zmdi-slideshow"></i>
-                  </label>
-                  <input type="text" name="work" id="work" autoComplete='off' value={user.work} onChange={handleInputs} placeholder='Your Profession'/>
-                  
-                </div><br></br>
-                <div className='form-group'>
-                  <label htmlFor='comment'>
-                  <i class="zmdi zmdi-slideshow"></i>
-                  </label>
-                  <input type="text" name="comment" id="comment" autoComplete='off'value={user.comment} onChange={handleInputs}  placeholder='Share Your Thoughts'/>
-                 
-                </div><br></br>
-                <div className='form-group'>
-                 
-                 
-                <input type="submit" name="submit" value="Submit" ></input>
-                </div>
-               
-                
-                
-                
+      <section className="signupclass">
+        <form onSubmit={save}>
+          <div className="signupform">
+            <div class="each-input">
+              <label>Full Name:</label>{" "}
+              <input
+                onChange={hName}
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your Name"
+                required
+              />
+            </div>
+            <div class="each-input">
+              <label>Email:</label>
+              <input
+                onChange={hEmail}
+                type="email"
+                id="email"
+                placeholder="Enter your Email"
+                name="email"
+                required
+              />
+            </div>
+            <div class="each-input">
+              <label>Phone Number:</label>
+              <input
+                onChange={hPhone}
+                type="tel"
+                id="phone"
+                placeholder="Enter your Phone number"
+                name="phone"
+                required
+              />
+            </div>
+            <div class="each-input">
+              <label>College Name:</label>
+              <input
+                onChange={hCollege}
+                type="text"
+                id="college"
+                placeholder="Enter your College name"
+                name="college"
+                required
+              />
+            </div>
+            <div class="each-input">
+              <label>Year:</label>
+              <input
+                onChange={hYear}
+                type="text"
+                id="year"
+                name="year"
+                placeholder="Currently Studying in which year"
+                required
+              />
+            </div>
+            <div class="each-input">
+              <label> Division:</label>
+              <input
+                onChange={hDiv}
+                type="text"
+                id="division"
+                name="division"
+                placeholder=" Division"
+                required
+              />
+            </div>
+            <div class="each-input">
+              <label>Share Your Thoughts:</label>
+              <textarea
+                onChange={hRev}
+                id="thoughts"
+                name="thoughts"
+                placeholder="Any reviews for us"
+                rows="4"
+                cols="50"
+                style={{ resize: "none" }}
+              ></textarea>
+              {/* <input type="text" /> */}
+            </div>
+            <div class="sub-form">
+              <button class="submitt" type="submit">
+                Submit
+              </button>
+            </div>
+            <div class="sub-form">
+              <h1>{msg}</h1>
             </div>
           </div>
-         </div>
-         
+        </form>
       </section>
     </>
-  )
+  );
 }
 
-export default Signup
+export default Signup;

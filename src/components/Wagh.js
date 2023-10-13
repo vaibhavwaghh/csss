@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import ReactDOM from "react-dom/client";
+
 import "../wagh.css";
 
 import { Div } from "./Div.js";
@@ -73,15 +73,15 @@ function Wagh() {
     console.log(hashingFunctionName, collisionResolution, size);
     event.preventDefault();
     if (
-      hashingFunctionName === "Select a hashing function" ||
-      collisionResolution === "Select a collision resolution technique" ||
-      size === "Choose table size" ||
+      hashingFunctionName === "Hashing function" ||
+      collisionResolution === "Collision resolution technique" ||
+      size === "Table size" ||
       hashingFunctionName === false ||
       collisionResolution === false ||
       size === false
     ) {
       alert("WRONG INPUT");
-
+      setMyBoxes1([]);
       setVisible(false);
     } else {
       setMyBoxes(Array(value).fill(-1));
@@ -231,16 +231,24 @@ function Wagh() {
 
       if (collisionResolution === "Linear probing") {
         let oldhash = hashValue;
+        // while (updatedBoxes[hashValue] !== -1) {
+        //   console.log(hashValue, size);
+        //   if (hashValue > size) {
+        //     hashValue = 0;
+        //   } else {
+        //     hashValue++;
+        //     break;
+        //   }
+        // if (!boxes.includes(-1)) {
+        //   break;
+        // }
         while (updatedBoxes[hashValue] !== -1) {
-          if (hashValue <= size) {
-            hashValue++;
-          } else {
+          hashValue++;
+          if (hashValue > size) {
             hashValue = 0;
-            if (!boxes.includes(-1)) {
-              break;
-            }
           }
         }
+
         if (hashValue <= size) {
           setExplain(
             `Collision Happens at array index ${oldhash}
@@ -564,7 +572,7 @@ So the new Hash-Index is ${hashValue}`);
           onSubmit={(event) => handleSubmit(event, numBoxes)}
         >
           <select value={hashingFunctionName} onChange={vpw1} name="" id="k1">
-            <option>Select a hashing function </option>
+            <option> Hashing function </option>
             <option>Direct Hashing</option>
             <option>Multiplication method</option>
             <option>Modulo division</option>
@@ -572,14 +580,14 @@ So the new Hash-Index is ${hashValue}`);
             <option>Folding method</option>
           </select>
           <select value={collisionResolution} onChange={vpw2} name="" id="k2">
-            <option>Select a collision resolution technique</option>
+            <option>Collision resolution </option>
             <option>Linear probing</option>
             <option>Quadratic probing</option>
             <option>Double hashing</option>
             <option>Open hashing</option>
           </select>
           <select value={size} onChange={vpw3} name="" id="k3">
-            <option>Choose table size</option>
+            <option>Table size</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -599,7 +607,9 @@ So the new Hash-Index is ${hashValue}`);
           {/* <button onClick={() => handleSubmit(numBoxes)} className="button-1">
           SUBMIT
         </button> */}
-          <input className="buttonn-2" type="submit" value="SUBMIT" />
+          <div class="sub">
+            <input className="buttonn-2" type="submit" value="SUBMIT" />
+          </div>
         </form>
         <div className="large-container">
           {visible && (
@@ -615,7 +625,9 @@ So the new Hash-Index is ${hashValue}`);
                 {/* <button onClick={updateBox} className="button-2">
                 INSERT
               </button> */}
-                <input className="button-2" type="submit" value="INSERT" />
+                <div class="sub">
+                  <input className="button-2" type="submit" value="INSERT" />
+                </div>
               </div>
             </form>
           )}
@@ -632,7 +644,9 @@ So the new Hash-Index is ${hashValue}`);
                 {/* <button onClick={updateBox1} className="button-2">
                 SEARCH
               </button> */}
-                <input type="submit" value="SEARCH" className="button-2" />
+                <div class="sub">
+                  <input type="submit" value="SEARCH" className="button-2" />
+                </div>
               </div>
             </form>
           )}
@@ -649,7 +663,9 @@ So the new Hash-Index is ${hashValue}`);
                 {/* <button onClick={updateBox2} className="button-2">
                 DELETE
               </button> */}
-                <input className="button-2" type="submit" value="DELETE" />
+                <div class="sub">
+                  <input className="button-2" type="submit" value="DELETE" />
+                </div>
               </div>
             </form>
           )}
@@ -666,7 +682,7 @@ So the new Hash-Index is ${hashValue}`);
           deletedHashValue={deletedHashValue}
         />
       )}
-      {visible && v1 && <div>{boxes1}</div>}
+      {visible && v1 && <div class="new-boxes">{boxes1}</div>}
       {visible && (
         <div className="conttt">
           {" "}

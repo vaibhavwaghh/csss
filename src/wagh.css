@@ -1,26 +1,26 @@
 #k1 {
   box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
   padding: 15px 20px;
-  font-size: 1.3rem;
-  width: 22rem;
-  height: 4rem;
+  font-size: 2rem;
+  width: 28rem;
+  height: 5rem;
   /* background-color: #99ccff; */
 }
 #k2 {
   box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
   padding: 15px 20px;
-  font-size: 1.3rem;
-  width: 32rem;
-  height: 4rem;
+  font-size: 2rem;
+  width: 43rem;
+  height: 5rem;
 
   /* background-color: #99ccff; */
 }
 #k3 {
   box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
   padding: 15px 20px;
-  font-size: 1.3rem;
+  font-size: 2rem;
   width: 15rem;
-  height: 4rem;
+  height: 5rem;
   /* background-color: #99ccff; */
 }
 #l {
@@ -38,8 +38,10 @@
 }
 .container-big {
   display: flex;
-  gap: 16rem;
+  justify-content: space-between;
   margin-top: 7rem;
+  padding: 2rem;
+  gap: 1rem;
 }
 .button-1 {
   cursor: pointer;
@@ -52,15 +54,14 @@
 .button-2 {
   cursor: pointer;
   width: 11rem;
-  height: 3rem;
-  font-size: 1.2rem;
+  height: 4rem;
+  font-size: 1.8rem;
   background-color: #ffff00;
 }
 .buttonn-2 {
-  cursor: pointer;
   width: 11rem;
-  height: 3rem;
-  font-size: 1.2rem;
+  height: 4rem;
+  font-size: 1.8rem;
   background-color: #ffff00;
   position: relative;
   top: 4px;
@@ -70,6 +71,7 @@
   margin-top: 4.5rem;
   align-items: center;
   justify-content: center;
+  /* overflow: hidden; */
 }
 
 #box {
@@ -94,8 +96,8 @@
 .user-input-1 {
   box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
   padding: 15px 5px;
-  font-size: 1.3rem;
-  width: 17rem;
+  font-size: 2rem;
+  width: 26rem;
   text-align: center;
 }
 .container-2 {
@@ -135,7 +137,7 @@
   background-color: #006fff47;
   width: 50%;
   margin-top: 5.4rem;
-  height: 20rem;
+  height: 25rem;
   font-size: 2rem;
   border: 2px solid black;
   overflow: auto;
@@ -145,13 +147,13 @@
   background-color: #006fff47;
   width: 50%;
   margin-top: 5.4rem;
-  font-size: 1.7rem;
+  font-size: 2.3rem;
   border: 2px solid black;
   overflow: auto;
   display: flex;
   flex-direction: column;
-  margin-right: 1rem;
-  display: table-row;
+  /* margin-right: 1rem; */
+  display: flex;
 }
 .number-of-collision {
   grid-column: span 2;
@@ -173,7 +175,12 @@
   display: flex;
   flex-direction: row;
   gap: 5rem;
+  margin-right: 1rem;
   margin-top: 4rem;
+}
+.new-boxes,
+.conti {
+  overflow: hidden;
 }
 body {
   background-color: #93d55e85;
@@ -182,4 +189,144 @@ body {
   margin-top: 1.7rem;
   position: relative;
   /* left: 9px; */
+}
+@media (max-width: 2448px) {
+  #k1,
+  #k2 {
+    width: 25rem;
+  }
+  #k3 {
+    width: 20rem;
+  }
+  .user-input-1 {
+    width: 21rem;
+  }
+}
+@media (max-width: 2135px) {
+  .containerrr {
+    gap: 2rem;
+  }
+
+  .user-input-1 {
+    width: 17rem;
+  }
+}
+@media (max-width: 1916px) {
+  #k1 {
+    width: 18rem;
+  }
+  #k2 {
+    width: 24rem;
+  }
+  #k3 {
+    width: 12rem;
+  }
+}
+@media (max-width: 1726px) {
+  .containerrr {
+    display: grid;
+  }
+  #k1,
+  #k2,
+  #k3 {
+    width: 30rem;
+  }
+  .sub {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 1067px) {
+  #k1,
+  #k2,
+  #k3 {
+    width: 23rem;
+    font-size: 1.3rem;
+  }
+  .user-input-1 {
+    width: 14rem;
+    font-size: 1.3rem;
+  }
+  .button-2 {
+    cursor: pointer;
+    width: 7rem;
+    height: 4rem;
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 750px) {
+  .container-big {
+    display: grid;
+    justify-content: center;
+    gap: 8rem;
+  }
+  #k1,
+  #k2,
+  #k3 {
+    width: 30rem;
+    font-size: 2rem;
+  }
+  .user-input-1 {
+    width: 20rem;
+    font-size: 2rem;
+  }
+  .box-container {
+    display: grid;
+  }
+  .mm {
+    color: orange;
+    position: relative;
+    top: -67px;
+    right: 130px;
+  }
+}
+@media (max-width: 520px) {
+  .container-2 {
+    display: grid;
+  }
+  #k1,
+  #k2,
+  #k3,
+  .user-input-1 {
+    width: 19rem;
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 1519px) {
+  .elements {
+    font-size: 2.1rem;
+  }
+}
+@media (max-width: 1000px) {
+  .conttt {
+    display: grid;
+  }
+  .explain {
+    width: 100%;
+    height: 35rem;
+    margin-top: 3rem;
+  }
+  .elements {
+    margin-top: 1rem;
+    margin: 0 1rem;
+    width: 100%;
+  }
+}
+@media (max-width: 450px) {
+  .elements {
+    font-size: 1.7rem;
+  }
+}
+@media (max-width: 1050px) {
+  #box {
+    height: 115px;
+    background-color: #99ccff;
+    border: 2px solid black;
+    width: 190px;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+  }
 }
