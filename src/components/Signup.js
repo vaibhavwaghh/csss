@@ -140,9 +140,18 @@ function Signup() {
               {/* <input type="text" /> */}
             </div>
             <div class="sub-form">
-              <button class="submitt" type="submit">
+              {/* <button class="submitt" type="submit">
+                Submit
+              </button> */}
+              <button type="button" class="btn btn-outline-success " id="sub">
                 Submit
               </button>
+              {/* <button
+                type="button"
+                class="btn btn-primary btn-outline-success btn-lg"
+              >
+                Submit
+              </button> */}
             </div>
             <div class="sub-form">
               <h1>{msg}</h1>
