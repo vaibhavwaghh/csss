@@ -39,7 +39,7 @@
 .container-big {
   display: flex;
   justify-content: space-between;
-  margin-top: 7rem;
+  margin-top: 9rem;
   padding: 2rem;
   gap: 1rem;
 }

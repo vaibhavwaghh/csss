@@ -113,14 +113,14 @@
 }
 .cards {
   display: flex;
-  flex-wrap: wrap;
+  gap: 2rem;
   justify-content: space-between;
   font-size: 2.5rem;
   color: Black;
 }
 .card {
-  flex: 0 0 calc(33.33% - 20px);
-  max-width: calc(33.33% - 20px);
+  /* flex: 0 0 calc(33.33% - 20px); */
+  /* max-width: calc(33.33% - 20px); */
   width: 100%;
   background: thistle;
   padding: 20px;
@@ -160,10 +160,6 @@
     font-size: 30px;
     line-height: 40px;
   }
-  .card {
-    flex: 0 0 calc(50% - 20px);
-    max-width: calc(50% - 20px);
-  }
 }
 
 @media (max-width: 600px) {
@@ -174,10 +170,6 @@
     font-size: 30px;
     line-height: 40px;
   } */
-  .card {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
 }
 .unde {
   color: Red;
@@ -316,19 +308,13 @@
 }
 .mainbox {
   border: 10px solid grey;
-  margin-left: 5%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-right: 4.5%;
+  margin: 10rem;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
 }
 .Img1 {
-  margin-left: 6%;
   text-align: center;
-  max-width: 100%; /* Set the maximum width to 100% of its container */
-  height: 10%; /* Allow the height to adjust proportionally */
 }
 .Img2 {
   margin-left: 6%;
@@ -816,6 +802,7 @@ select {
   /* overflow: hidden; */
   text-align: center;
   gap: 5rem;
+  margin-top: 13rem;
 }
 .cardi {
   padding: 1rem;
@@ -1017,6 +1004,13 @@ ul.team-icon li a.dribble {
   text-align: center;
   font-size: 1.2rem;
 } */
+.head1 {
+  background-color: #61dafb;
+  font-size: 2.5rem;
+  margin-left: 4%;
+  margin-top: 4%;
+  border: 2px solid greenyellow;
+}
 .CRTTypes,
 .OHH {
   overflow: auto;
@@ -1180,9 +1174,103 @@ ul.team-icon li a.dribble {
   text-align: center;
   /* background-color: #fdf2e9; */
 }
+.slider {
+  max-width: 100rem;
+  height: 50rem;
+  margin: 0 auto;
+  position: relative;
+
+  /* IN THE END */
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* THIS creates the animation! */
+  transition: transform 1s;
+}
+
+.slide > img {
+  /* Only for images that have different size than slide */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+
+  border: none;
+  background: rgba(255, 255, 255, 0.7);
+  font-family: inherit;
+  color: #333;
+  border-radius: 50%;
+  height: 5.5rem;
+  width: 5.5rem;
+  font-size: 3.25rem;
+  cursor: pointer;
+}
+
+.slider__btn--left {
+  left: 6%;
+  transform: translate(-50%, -50%);
+}
+
+.slider__btn--right {
+  right: 6%;
+  transform: translate(50%, -50%);
+}
+
+.dots {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dots__dot {
+  border: none;
+  background-color: #b9b9b9;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-right: 1.75rem;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  /* Only necessary when overlying images */
+  /* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */
+}
+
+.dots__dot:last-child {
+  margin: 0;
+}
+
+.dots__dot--active {
+  background-color: black;
+  /* background-color: #888; */
+  opacity: 1;
+}
+.home-img {
+  width: 60%;
+  height: 60%;
+}
 @media (max-width: 1400px) {
   .op1 {
     margin: 8rem;
+    margin-top: 11rem;
   }
   .OHH {
     margin: 0 8rem;
@@ -1193,6 +1281,7 @@ ul.team-icon li a.dribble {
   .op1 {
     margin: 5rem;
     font-size: 2.5rem;
+    margin-top: 10rem;
   }
   .OHH {
     margin: 0 5rem;
@@ -1203,6 +1292,7 @@ ul.team-icon li a.dribble {
     margin: 3rem;
     font-size: 2rem;
     padding: 1rem;
+    margin-top: 10rem;
   }
   .OHH {
     margin: 0 3rem;
@@ -1213,6 +1303,7 @@ ul.team-icon li a.dribble {
     margin: 1rem;
     padding: 0.8rem;
     font-size: 1.5rem;
+    margin-top: 10rem;
   }
   .OHH {
     margin: 0 1rem;
@@ -1235,24 +1326,24 @@ ul.team-icon li a.dribble {
     font-size: 2.1rem;
   }
 }
+
 @media (max-width: 2114px) {
   .section-white {
     margin: 7rem;
     gap: 3rem;
+    margin-top: 10rem;
   }
 }
 @media (max-width: 1800px) {
   .section-white {
     margin: 4rem;
     gap: 2rem;
-  }
-}
-@media (max-width: 1800px) {
-  .section-white {
+    margin-top: 10rem;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
 }
+
 @media (max-width: 900px) {
   .section-white {
     gap: 3rem;
@@ -1263,6 +1354,7 @@ ul.team-icon li a.dribble {
 @media (max-width: 570px) {
   .section-white {
     margin: 1.5rem;
+    margin-top: 9rem;
   }
 }
 @media (max-width: 420px) {
@@ -1357,6 +1449,16 @@ ul.team-icon li a.dribble {
   .header-list-links {
     color: black;
   }
+  .cards {
+    display: grid;
+    /* grid-template-columns: repeat(1, 1fr); */
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: space-around;
+  }
+  .containert2 {
+    margin: 8rem;
+    font-size: 3rem;
+  }
 }
 @media (max-width: 850px) {
   .topic {
@@ -1365,7 +1467,44 @@ ul.team-icon li a.dribble {
   .topic1 {
     display: block;
   }
-  .sticky {
-    height: 10rem;
+}
+@media (max-width: 1050px) {
+  .containert2 {
+    margin: 8rem;
+    font-size: 3rem;
+  }
+}
+@media (max-width: 1000px) {
+  .containert2 {
+    margin: 5rem;
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 620px) {
+  .containert2 {
+    margin: 3rem;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 450px) {
+  .containert2 {
+    margin: 1rem;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1400px) {
+  .mainbox {
+    margin: 10rem 2rem;
+  }
+}
+@media (max-width: 1056px) {
+  .home-img {
+    width: 80%;
+    height: 80%;
+  }
+}
+@media (max-width: 500px) {
+  .mainbox {
+    margin: 10rem 0rem;
   }
 }

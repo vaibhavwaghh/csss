@@ -202,9 +202,9 @@ const Navbar = () => {
       {/* </div> */}
       {/* </div> */}
       <div className="header1 sticky">
-        <div class="topic1">
+        {/* <div class="topic1">
           <h1>Hashing in Data structure</h1>
-        </div>
+        </div> */}
         <header class="header ">
           <div>
             {" "}
