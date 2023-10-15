@@ -1,11 +1,11 @@
-import React from 'react'
-import { Carousel } from 'react-bootstrap'
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import {Container,Row,Tabs,Tab} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import { Carousel } from "react-bootstrap";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { Container, Row, Tabs, Tab } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 const Quadraticprobbing = () => {
-  const codeString=`// C++ implementation of
+  const codeString = `// C++ implementation of
   // the Quadratic Probing
   #include <bits/stdc++.h>
   using namespace std;
@@ -73,8 +73,8 @@ const Quadraticprobbing = () => {
   }
   
  
-  `
-  const codeStr2=`// Java implementation of the Quadratic Probing
+  `;
+  const codeStr2 = `// Java implementation of the Quadratic Probing
 
   class GFG {
   
@@ -147,8 +147,8 @@ const Quadraticprobbing = () => {
       hashing(hash_table, L, arr, N);
     }
   }
-  `
-  const codeStr3=`# Python3 implementation of
+  `;
+  const codeStr3 = `# Python3 implementation of
   # the Quadratic Probing
   
   # Function to print an array
@@ -217,36 +217,109 @@ const Quadraticprobbing = () => {
     hashing(hash_table, L, arr, N)
   
  
-  `
-  ;
+  `;
+  const slides = document.querySelectorAll(".slide");
+  const btnLeft = document.querySelector(".slider__btn--left");
+  const btnRight = document.querySelector(".slider__btn--right");
+  // const dotContainer = document.querySelector(".dots");
+  let currentSlide = 0;
+  const numberOfSlides = slides.length;
+  function gotoSlide(currentSlideNumber) {
+    slides.forEach(
+      (s, i) =>
+        (s.style.transform = `translateX(${100 * (i - currentSlideNumber)}%)`)
+    );
+  }
+  // gotoSlide(0);
+  function nextSlide() {
+    if (currentSlide === numberOfSlides - 1) {
+      currentSlide = 0;
+    } else {
+      currentSlide++;
+    }
+    gotoSlide(currentSlide);
+    // activateDot(currentSlide);
+  }
+  function prevSlide() {
+    if (currentSlide === 0) {
+      currentSlide = numberOfSlides - 1;
+    } else {
+      currentSlide--;
+    }
+    gotoSlide(currentSlide);
+    // activateDot(currentSlide);
+  }
   return (
     <React.Fragment>
-        <div className='qp1'>
-        In Quadratic Probing, the intervals between the key positions is increased when compared to linear probing as the hash function is mostly different. The issue that is occurred due to the clustering in the above technique can be easily solved by using the quadratic probing technique. This technique is also known as mid-square method. When the iteration that is currently running is " i ", then the i^2th position is considered as the key position for that respective key. Other slots of positions are checked only when the key position that we are trying for is already occupied. This is the most efficient and effective method for a hash table which possesses closed properties. It has an average performance of cache and a subtle problem with clustering.
-        </div>
-    <div className='qp2'>
-      <h>
-      How Quadratic Probing is done? <br></br>
-Let hash(x) be the slot index computed using the hash function.
-<ul>
-   <li>If the slot hash(x) % S is full, then we try (hash(x) + 1*1) % S.</li> 
-   <li>If (hash(x) + 1*1) % S is also full, then we try (hash(x) + 2*2) % S.</li> 
-   <li>If (hash(x) + 2*2) % S is also full, then we try (hash(x) + 3*3) % S.</li> 
-</ul>
-<br></br>
-This process is repeated for all the values of i until an empty slot is found
-      </h>
-    </div>
-    <div className='qp3'>
-        <h><strong>Difficulties faced with Quadratic Probing:</strong><br></br>
-        It deals with secondary clustering, and sometimes, two keys have same prob sequence whenever they possess the same key position.
+      <div className="qp1">
+        In Quadratic Probing, the intervals between the key positions is
+        increased when compared to linear probing as the hash function is mostly
+        different. The issue that is occurred due to the clustering in the above
+        technique can be easily solved by using the quadratic probing technique.
+        This technique is also known as mid-square method. When the iteration
+        that is currently running is " i ", then the i^2th position is
+        considered as the key position for that respective key. Other slots of
+        positions are checked only when the key position that we are trying for
+        is already occupied. This is the most efficient and effective method for
+        a hash table which possesses closed properties. It has an average
+        performance of cache and a subtle problem with clustering.
+      </div>
+      <div className="qp2">
+        <h>
+          How Quadratic Probing is done? <br></br>
+          Let hash(x) be the slot index computed using the hash function.
+          <ul>
+            <li>
+              If the slot hash(x) % S is full, then we try (hash(x) + 1*1) % S.
+            </li>
+            <li>
+              If (hash(x) + 1*1) % S is also full, then we try (hash(x) + 2*2) %
+              S.
+            </li>
+            <li>
+              If (hash(x) + 2*2) % S is also full, then we try (hash(x) + 3*3) %
+              S.
+            </li>
+          </ul>
+          <br></br>
+          This process is repeated for all the values of i until an empty slot
+          is found
         </h>
-    </div>
-    <div className="ex1">
-      <h>Example of Quadratic Probbing</h>
-    </div>
-    <div className="car">
-        <Carousel data-bs-theme="dark">
+      </div>
+      <div className="qp3">
+        <h>
+          <strong>Difficulties faced with Quadratic Probing:</strong>
+          <br></br>
+          It deals with secondary clustering, and sometimes, two keys have same
+          prob sequence whenever they possess the same key position.
+        </h>
+      </div>
+      <div className="ex1">
+        <h>Example of Quadratic Probbing</h>
+      </div>
+      <div class="slider">
+        <div class="slide">
+          <img src="https://i.ibb.co/ggcV7bm/1.jpg" alt="Photo 1" />
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/rsDmBtd/2.jpgs" alt="Photo 2" />
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/prL2XWv/3.jpg" alt="Photo 3" />
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/nrmNnFC/4.jpg" alt="Photo 4" />
+        </div>
+        <button onClick={prevSlide} class="slider__btn slider__btn--left">
+          &larr;
+        </button>
+        <button onClick={nextSlide} class="slider__btn slider__btn--right">
+          &rarr;
+        </button>
+        {/* <div class="dots"></div> */}
+      </div>
+      <div className="car">
+        {/* <Carousel data-bs-theme="dark">
       <Carousel.Item>
         <img
           className="d-b100lock w-"
@@ -297,77 +370,93 @@ This process is repeated for all the values of i until an empty slot is found
         </Carousel.Caption>
       </Carousel.Item>
      
-    </Carousel>
-    <Container className='py-4'>
-        <Row className='justify-content-center'>
-            <Tabs justify variant="pills" defaultActiveKey="tab-1" className='mb-1 p-0'>
-                <Tab eventKey="tab-1" title="CPP" className='cs'>
-                  <div className="max-w-2x1 min-w-[25rem] bg-[#C0AEF1]  rounded-md overflow-hidden">
-                    <div className="flex justify-between px-4 text-pink text-xs items-center">
-                        <p className='text-sm' class="eg">Example Code</p>
-                        {/* <button class="b1"className='py-1 inline-flex items-center gap-1'>
-                          <span className='text-bae'>
-                            <ion-icon name="clipboard-outline" ></ion-icon> </span>
-                          Copy Code
-                         
-                        </button> */}
-
-                    </div>
-                <SyntaxHighlighter language="jsx" style={atomOneDark} customStyle={{
-                  padding: '25 px',
-                }}>
-
-      {codeString}
-    </SyntaxHighlighter>
-    </div>
-                </Tab>
-                <Tab eventKey="tab-2" title="JAVA">
+    </Carousel> */}
+        <Container className="py-4">
+          <Row className="justify-content-center">
+            <Tabs
+              justify
+              variant="pills"
+              defaultActiveKey="tab-1"
+              className="mb-1 p-0"
+            >
+              <Tab eventKey="tab-1" title="CPP" className="cs">
                 <div className="max-w-2x1 min-w-[25rem] bg-[#C0AEF1]  rounded-md overflow-hidden">
-                    <div className="flex justify-between px-4 text-pink text-xs items-center">
-                        <p className='text-sm' class="eg">Example Code</p>
-                        {/* <button class="b1"className='py-1 inline-flex items-center gap-1'>
+                  <div className="flex justify-between px-4 text-pink text-xs items-center">
+                    <p className="text-sm" class="eg">
+                      Example Code
+                    </p>
+                    {/* <button class="b1"className='py-1 inline-flex items-center gap-1'>
                           <span className='text-bae'>
                             <ion-icon name="clipboard-outline" ></ion-icon> </span>
                           Copy Code
                          
                         </button> */}
-
-                    </div>
-                <SyntaxHighlighter language="jsx" style={atomOneDark} customStyle={{
-                  padding: '25 px',
-                }}>
-
-      {codeStr2}
-    </SyntaxHighlighter>
-    </div>
-                </Tab>
-                <Tab eventKey="tab-3" title="Python3">
+                  </div>
+                  <SyntaxHighlighter
+                    language="jsx"
+                    style={atomOneDark}
+                    customStyle={{
+                      padding: "25 px",
+                    }}
+                  >
+                    {codeString}
+                  </SyntaxHighlighter>
+                </div>
+              </Tab>
+              <Tab eventKey="tab-2" title="JAVA">
                 <div className="max-w-2x1 min-w-[25rem] bg-[#C0AEF1]  rounded-md overflow-hidden">
-                    <div className="flex justify-between px-4 text-pink text-xs items-center">
-                        <p className='text-sm' class="eg">Example Code</p>
-                        {/* <button class="b1"className='py-1 inline-flex items-center gap-1'>
+                  <div className="flex justify-between px-4 text-pink text-xs items-center">
+                    <p className="text-sm" class="eg">
+                      Example Code
+                    </p>
+                    {/* <button class="b1"className='py-1 inline-flex items-center gap-1'>
                           <span className='text-bae'>
                             <ion-icon name="clipboard-outline" ></ion-icon> </span>
                           Copy Code
                          
                         </button> */}
-
-                    </div>
-                <SyntaxHighlighter language="jsx" style={atomOneDark} customStyle={{
-                  padding: '25 px',
-                }}>
-
-      {codeStr3}
-    </SyntaxHighlighter>
-    </div>
-                </Tab>
+                  </div>
+                  <SyntaxHighlighter
+                    language="jsx"
+                    style={atomOneDark}
+                    customStyle={{
+                      padding: "25 px",
+                    }}
+                  >
+                    {codeStr2}
+                  </SyntaxHighlighter>
+                </div>
+              </Tab>
+              <Tab eventKey="tab-3" title="Python3">
+                <div className="max-w-2x1 min-w-[25rem] bg-[#C0AEF1]  rounded-md overflow-hidden">
+                  <div className="flex justify-between px-4 text-pink text-xs items-center">
+                    <p className="text-sm" class="eg">
+                      Example Code
+                    </p>
+                    {/* <button class="b1"className='py-1 inline-flex items-center gap-1'>
+                          <span className='text-bae'>
+                            <ion-icon name="clipboard-outline" ></ion-icon> </span>
+                          Copy Code
+                         
+                        </button> */}
+                  </div>
+                  <SyntaxHighlighter
+                    language="jsx"
+                    style={atomOneDark}
+                    customStyle={{
+                      padding: "25 px",
+                    }}
+                  >
+                    {codeStr3}
+                  </SyntaxHighlighter>
+                </div>
+              </Tab>
             </Tabs>
-        </Row>
-    
-    </Container>
-    </div>
+          </Row>
+        </Container>
+      </div>
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default Quadraticprobbing
+export default Quadraticprobbing;

@@ -1,10 +1,10 @@
-import React from 'react'
-import { Carousel } from 'react-bootstrap'
-import {Container,Row,Tabs,Tab} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import { Carousel } from "react-bootstrap";
+import { Container, Row, Tabs, Tab } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const Doublehashing = () => {
   const codeString = `/*
@@ -182,8 +182,8 @@ const Doublehashing = () => {
     
     return 0;
   }
-  `
-  const codeStr2 =`from typing import List
+  `;
+  const codeStr2 = `from typing import List
   import math
   
   MAX_SIZE = 10000001
@@ -287,8 +287,8 @@ const Doublehashing = () => {
       
     print("Status of hash table after deleting elements : ",end='')
     myHash.print()
-  `
-  const codeStr3=`using System;
+  `;
+  const codeStr3 = `using System;
   using System.Collections.Generic;
   using System.Linq;
   
@@ -483,180 +483,271 @@ const Doublehashing = () => {
       myHash.print();
     }
   }
-  `
-  ;
- return (
+  `;
+  const slides = document.querySelectorAll(".slide");
+  const btnLeft = document.querySelector(".slider__btn--left");
+  const btnRight = document.querySelector(".slider__btn--right");
+  // const dotContainer = document.querySelector(".dots");
+  let currentSlide = 0;
+  const numberOfSlides = slides.length;
+  function gotoSlide(currentSlideNumber) {
+    slides.forEach(
+      (s, i) =>
+        (s.style.transform = `translateX(${100 * (i - currentSlideNumber)}%)`)
+    );
+  }
+  // gotoSlide(0);
+  function nextSlide() {
+    if (currentSlide === numberOfSlides - 1) {
+      currentSlide = 0;
+    } else {
+      currentSlide++;
+    }
+    gotoSlide(currentSlide);
+    // activateDot(currentSlide);
+  }
+  function prevSlide() {
+    if (currentSlide === 0) {
+      currentSlide = numberOfSlides - 1;
+    } else {
+      currentSlide--;
+    }
+    gotoSlide(currentSlide);
+    // activateDot(currentSlide);
+  }
+  return (
     <React.Fragment>
-    <div className='dh1'>
-      <h>
-      Double hashing is a collision resolution technique used in hash tables. It works by using two hash functions to compute two different hash values for a given key. The first hash function is used to compute the initial hash value, and the second hash function is used to compute the step size for the probing sequence.
-<br></br>
-Double hashing has the ability to have a low collision rate, as it uses two hash functions to compute the hash value and the step size. This means that the probability of a collision occurring is lower than in other collision resolution techniques such as linear probing or quadratic probing.
-<br></br>
-However, double hashing has a few drawbacks. First, it requires the use of two hash functions, which can increase the computational complexity of the insertion and search operations. Second, it requires a good choice of hash functions to achieve good performance. If the hash functions are not well-designed, the collision rate may still be high.
-      </h>
-    </div>
-    <div className='dh2'>
+      <div className="dh1">
         <h>
-       <strong> Advantages of Double hashing</strong><br></br>
-       <ul>
-        <li> The advantage of Double hashing is that it is one of the best forms of probing, producing a uniform distribution of records throughout a hash table.</li>
-        <li>This technique does not yield any clusters.</li>
-        <li>It is one of the effective methods for resolving collision</li>
-       </ul>
-
-      <strong> Difficulties in Double hashing:</strong><br></br>
-
-Compared to other techniques, double hashing possesses poor cache performance but does not have any clustering issues. The time required for the completion of the entire process is more as there are two hash functions that are supposed to be performed. So, this causes poor cache performance. Other than this, there is no problem with Double hashing.
-      </h>
-    </div>
-    <div className='dh3'>
-        <h><strong>Double hashing can be done using : </strong>
-(hash1(key) + i * hash2(key)) % TABLE_SIZE <br></br>
-Here hash1() and hash2() are hash functions and TABLE_SIZE <br></br>
-is size of hash table. <br></br>
-We repeat by increasing i when collision occurs</h>
-    </div>
-    <div className="ex1">
-      <h>Example of Double Hashing</h>
-    </div>
-    <div className="car">
-        <Carousel data-bs-theme="dark">
-      <Carousel.Item>
-        <img
-          className="d-b100lock w-"
-          src="https://i.ibb.co/4T5k0zk/1.jpg"
-          alt="First slide"
-        />
-        <Carousel.Caption >
-          <div className="pic1"><p>First Slide</p></div>
-          
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://i.ibb.co/9cgRK59/2.jpg"
-          alt="Second slide"
-        />
-        <Carousel.Caption>
-          <div className="pic2">
-          <p>Second Slide</p>
-          </div>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://i.ibb.co/K9Yy5dh/3.jpg"
-          alt="Third slide"
-        />
-        <Carousel.Caption>
-          <div className="pic3">
-          <p>
-            Third Slide
-          </p>
-          </div>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://i.ibb.co/5Rfx2V9/4.jpg"
-          alt="Fouth slide"
-        />
-        <Carousel.Caption>
-          <div className="pic4">
-          <p>Fourth Slide</p>
-          </div>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://i.ibb.co/YkjHqft/5.jpg"
-          alt="Fifth slide"
-        />
-        <Carousel.Caption>
-          <div className="pic5">
-          <p>Fifth Slide</p>
-          </div>
-        </Carousel.Caption>
-      </Carousel.Item>
-    
-    </Carousel>
-    <Container className='py-4'>
-        <Row className='justify-content-center'>
-            <Tabs justify variant="pills" defaultActiveKey="tab-1" className='mb-1 p-0'>
-                <Tab eventKey="tab-1" title="CPP" className='cs'>
-                  <div className="max-w-2x1 min-w-[25rem] bg-[#C0AEF1]  rounded-md overflow-hidden">
-                    <div className="flex justify-between px-4 text-pink text-xs items-center">
-                        <p className='text-sm' class="eg">Example Code</p>
-                        {/* <button class="b1"className='py-1 inline-flex items-center gap-1'>
-                          <span className='text-bae'>
-                            <ion-icon name="clipboard-outline" ></ion-icon> </span>
-                          Copy Code
-                         
-                        </button> */}
-
-                    </div>
-                <SyntaxHighlighter language="jsx" style={atomOneDark} customStyle={{
-                  padding: '25 px',
-                }}>
-
-      {codeString}
-    </SyntaxHighlighter>
-    </div>
-                </Tab>
-                <Tab eventKey="tab-2" title="Python3">
+          Double hashing is a collision resolution technique used in hash
+          tables. It works by using two hash functions to compute two different
+          hash values for a given key. The first hash function is used to
+          compute the initial hash value, and the second hash function is used
+          to compute the step size for the probing sequence.
+          <br></br>
+          Double hashing has the ability to have a low collision rate, as it
+          uses two hash functions to compute the hash value and the step size.
+          This means that the probability of a collision occurring is lower than
+          in other collision resolution techniques such as linear probing or
+          quadratic probing.
+          <br></br>
+          However, double hashing has a few drawbacks. First, it requires the
+          use of two hash functions, which can increase the computational
+          complexity of the insertion and search operations. Second, it requires
+          a good choice of hash functions to achieve good performance. If the
+          hash functions are not well-designed, the collision rate may still be
+          high.
+        </h>
+      </div>
+      <div className="dh2">
+        <h>
+          <strong> Advantages of Double hashing</strong>
+          <br></br>
+          <ul>
+            <li>
+              {" "}
+              The advantage of Double hashing is that it is one of the best
+              forms of probing, producing a uniform distribution of records
+              throughout a hash table.
+            </li>
+            <li>This technique does not yield any clusters.</li>
+            <li>It is one of the effective methods for resolving collision</li>
+          </ul>
+          <strong> Difficulties in Double hashing:</strong>
+          <br></br>
+          Compared to other techniques, double hashing possesses poor cache
+          performance but does not have any clustering issues. The time required
+          for the completion of the entire process is more as there are two hash
+          functions that are supposed to be performed. So, this causes poor
+          cache performance. Other than this, there is no problem with Double
+          hashing.
+        </h>
+      </div>
+      <div className="dh3">
+        <h>
+          <strong>Double hashing can be done using : </strong>
+          (hash1(key) + i * hash2(key)) % TABLE_SIZE <br></br>
+          Here hash1() and hash2() are hash functions and TABLE_SIZE <br></br>
+          is size of hash table. <br></br>
+          We repeat by increasing i when collision occurs
+        </h>
+      </div>
+      <div className="ex1">
+        <h>Example of Double Hashing</h>
+      </div>
+      <div class="slider">
+        <div class="slide">
+          <img src="https://i.ibb.co/4T5k0zk/1.jpg" alt="Photo 1" />
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/9cgRK59/2.jpg" alt="Photo 2" />
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/K9Yy5dh/3.jpg" alt="Photo 3" />
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/5Rfx2V9/4.jpg" alt="Photo 4" />
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/YkjHqft/5.jpg" alt="Photo 4" />
+        </div>
+        <button onClick={prevSlide} class="slider__btn slider__btn--left">
+          &larr;
+        </button>
+        <button onClick={nextSlide} class="slider__btn slider__btn--right">
+          &rarr;
+        </button>
+        {/* <div class="dots"></div> */}
+      </div>
+      <div className="car">
+        {/* <Carousel data-bs-theme="dark">
+          <Carousel.Item>
+            <img
+              className="d-b100lock w-"
+              src="https://i.ibb.co/4T5k0zk/1.jpg"
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <div className="pic1">
+                <p>First Slide</p>
+              </div>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://i.ibb.co/9cgRK59/2.jpg"
+              alt="Second slide"
+            />
+            <Carousel.Caption>
+              <div className="pic2">
+                <p>Second Slide</p>
+              </div>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://i.ibb.co/K9Yy5dh/3.jpg"
+              alt="Third slide"
+            />
+            <Carousel.Caption>
+              <div className="pic3">
+                <p>Third Slide</p>
+              </div>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://i.ibb.co/5Rfx2V9/4.jpg"
+              alt="Fouth slide"
+            />
+            <Carousel.Caption>
+              <div className="pic4">
+                <p>Fourth Slide</p>
+              </div>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://i.ibb.co/YkjHqft/5.jpg"
+              alt="Fifth slide"
+            />
+            <Carousel.Caption>
+              <div className="pic5">
+                <p>Fifth Slide</p>
+              </div>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel> */}
+        <Container className="py-4">
+          <Row className="justify-content-center">
+            <Tabs
+              justify
+              variant="pills"
+              defaultActiveKey="tab-1"
+              className="mb-1 p-0"
+            >
+              <Tab eventKey="tab-1" title="CPP" className="cs">
                 <div className="max-w-2x1 min-w-[25rem] bg-[#C0AEF1]  rounded-md overflow-hidden">
-                    <div className="flex justify-between px-4 text-pink text-xs items-center">
-                        <p className='text-sm' class="eg">Example Code</p>
-                        {/* <button class="b1"className='py-1 inline-flex items-center gap-1'>
+                  <div className="flex justify-between px-4 text-pink text-xs items-center">
+                    <p className="text-sm" class="eg">
+                      Example Code
+                    </p>
+                    {/* <button class="b1"className='py-1 inline-flex items-center gap-1'>
                           <span className='text-bae'>
                             <ion-icon name="clipboard-outline" ></ion-icon> </span>
                           Copy Code
                          
                         </button> */}
-
-                    </div>
-                <SyntaxHighlighter language="jsx" style={atomOneDark} customStyle={{
-                  padding: '25 px',
-                }}>
-
-      {codeStr2}
-    </SyntaxHighlighter>
-    </div>
-                </Tab>
-                <Tab eventKey="tab-3" title="C#">
+                  </div>
+                  <SyntaxHighlighter
+                    language="jsx"
+                    style={atomOneDark}
+                    customStyle={{
+                      padding: "25 px",
+                    }}
+                  >
+                    {codeString}
+                  </SyntaxHighlighter>
+                </div>
+              </Tab>
+              <Tab eventKey="tab-2" title="Python3">
                 <div className="max-w-2x1 min-w-[25rem] bg-[#C0AEF1]  rounded-md overflow-hidden">
-                    <div className="flex justify-between px-4 text-pink text-xs items-center">
-                        <p className='text-sm' class="eg">Example Code</p>
-                        {/* <button class="b1"className='py-1 inline-flex items-center gap-1'>
+                  <div className="flex justify-between px-4 text-pink text-xs items-center">
+                    <p className="text-sm" class="eg">
+                      Example Code
+                    </p>
+                    {/* <button class="b1"className='py-1 inline-flex items-center gap-1'>
                           <span className='text-bae'>
                             <ion-icon name="clipboard-outline" ></ion-icon> </span>
                           Copy Code
                          
                         </button> */}
-
-                    </div>
-                <SyntaxHighlighter language="jsx" style={atomOneDark} customStyle={{
-                  padding: '25 px',
-                }}>
-
-      {codeStr3}
-    </SyntaxHighlighter>
-    </div>
-                </Tab>
+                  </div>
+                  <SyntaxHighlighter
+                    language="jsx"
+                    style={atomOneDark}
+                    customStyle={{
+                      padding: "25 px",
+                    }}
+                  >
+                    {codeStr2}
+                  </SyntaxHighlighter>
+                </div>
+              </Tab>
+              <Tab eventKey="tab-3" title="C#">
+                <div className="max-w-2x1 min-w-[25rem] bg-[#C0AEF1]  rounded-md overflow-hidden">
+                  <div className="flex justify-between px-4 text-pink text-xs items-center">
+                    <p className="text-sm" class="eg">
+                      Example Code
+                    </p>
+                    {/* <button class="b1"className='py-1 inline-flex items-center gap-1'>
+                          <span className='text-bae'>
+                            <ion-icon name="clipboard-outline" ></ion-icon> </span>
+                          Copy Code
+                         
+                        </button> */}
+                  </div>
+                  <SyntaxHighlighter
+                    language="jsx"
+                    style={atomOneDark}
+                    customStyle={{
+                      padding: "25 px",
+                    }}
+                  >
+                    {codeStr3}
+                  </SyntaxHighlighter>
+                </div>
+              </Tab>
             </Tabs>
-        </Row>
-    
-    </Container>
-    </div>
-   
-  
+          </Row>
+        </Container>
+      </div>
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default Doublehashing
+export default Doublehashing;

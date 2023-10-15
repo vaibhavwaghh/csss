@@ -374,6 +374,37 @@ const Separatechaining = () => {
   return 0;
   }
   `;
+  const slides = document.querySelectorAll(".slide");
+  const btnLeft = document.querySelector(".slider__btn--left");
+  const btnRight = document.querySelector(".slider__btn--right");
+  // const dotContainer = document.querySelector(".dots");
+  let currentSlide = 0;
+  const numberOfSlides = slides.length;
+  function gotoSlide(currentSlideNumber) {
+    slides.forEach(
+      (s, i) =>
+        (s.style.transform = `translateX(${100 * (i - currentSlideNumber)}%)`)
+    );
+  }
+  // gotoSlide(0);
+  function nextSlide() {
+    if (currentSlide === numberOfSlides - 1) {
+      currentSlide = 0;
+    } else {
+      currentSlide++;
+    }
+    gotoSlide(currentSlide);
+    // activateDot(currentSlide);
+  }
+  function prevSlide() {
+    if (currentSlide === 0) {
+      currentSlide = numberOfSlides - 1;
+    } else {
+      currentSlide--;
+    }
+    gotoSlide(currentSlide);
+    // activateDot(currentSlide);
+  }
   return (
     <React.Fragment>
       <div className="sc1">
@@ -491,8 +522,38 @@ const Separatechaining = () => {
       <div className="ex1">
         <h>Example of Collision In Hashing</h>
       </div>
+      <div class="slider">
+        <div class="slide">
+          <img src="https://i.ibb.co/p3qpfR4/1.jpg" alt="Photo 1" />
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/b18JVsM/2.jpg" alt="Photo 2" />
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/2dBGh7T/3.jpg" alt="Photo 3" />
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/SvNdW9S/4.jpg" alt="Photo 4" />
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/cLJZdbm/5.jpg" alt="Photo 4" />
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/zQbXWcX/6.jpg" alt="Photo 4" />
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/Thhb3LP/7.jpg" alt="Photo 4" />
+        </div>
+        <button onClick={prevSlide} class="slider__btn slider__btn--left">
+          &larr;
+        </button>
+        <button onClick={nextSlide} class="slider__btn slider__btn--right">
+          &rarr;
+        </button>
+        {/* <div class="dots"></div> */}
+      </div>
       <div className="car">
-        <Carousel data-bs-theme="dark">
+        {/* <Carousel data-bs-theme="dark">
           <Carousel.Item>
             <img
               className="d-b100lock w-"
@@ -589,7 +650,7 @@ const Separatechaining = () => {
               </div>
             </Carousel.Caption>
           </Carousel.Item>
-        </Carousel>
+        </Carousel> */}
         <Container className="py-4">
           <Row className="justify-content-center">
             <Tabs
