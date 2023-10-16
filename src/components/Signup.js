@@ -37,23 +37,20 @@ function Signup() {
   function save(e) {
     e.preventDefault();
     let data = { name, email, phone, college, year, division, review };
-    let url = "http://localhost:9002/save";
+    let url = "https://hashing-in-ds.onrender.com/send";
     axios
       .post(url, data)
       .then((res) => {
-        alert("WE GOT YOUR RESPONSE. Thank you!!!");
-
-        setTimeout(() => {
-          setName("");
-          setCollege("");
-          setDivision("");
-          setEmail("");
-          setReview("");
-          setPhone("");
-          setYear("");
-        }, 0);
+        setMsg("WE GOT YOUR RESPONSE. Thank you!!!");
+        setName("");
+        setCollege("");
+        setDivision("");
+        setEmail("");
+        setReview("");
+        setPhone("");
+        setYear("");
       })
-      .catch((err) => alert(`Issue is ${err}`));
+      .catch((err) => setMsg(`Issue is ${err}`));
   }
   return (
     <>
@@ -69,6 +66,7 @@ function Signup() {
                 name="name"
                 placeholder="Enter your Name"
                 required
+                value={name}
               />
             </div>
             <div class="each-input">
@@ -80,6 +78,7 @@ function Signup() {
                 placeholder="Enter your Email"
                 name="email"
                 required
+                value={email}
               />
             </div>
             <div class="each-input">
@@ -91,6 +90,7 @@ function Signup() {
                 placeholder="Enter your Phone number"
                 name="phone"
                 required
+                value={phone}
               />
             </div>
             <div class="each-input">
@@ -102,6 +102,7 @@ function Signup() {
                 placeholder="Enter your College name"
                 name="college"
                 required
+                value={college}
               />
             </div>
             <div class="each-input">
@@ -113,6 +114,7 @@ function Signup() {
                 name="year"
                 placeholder="Currently Studying in which year"
                 required
+                value={year}
               />
             </div>
             <div class="each-input">
@@ -124,6 +126,7 @@ function Signup() {
                 name="division"
                 placeholder=" Division"
                 required
+                value={division}
               />
             </div>
             <div class="each-input">
@@ -136,16 +139,17 @@ function Signup() {
                 rows="4"
                 cols="50"
                 style={{ resize: "none" }}
+                value={review}
               ></textarea>
               {/* <input type="text" /> */}
             </div>
             <div class="sub-form">
-              {/* <button class="submitt" type="submit">
-                Submit
-              </button> */}
-              <button type="button" class="btn btn-outline-success " id="sub">
+              <button class="submitt" type="submit">
                 Submit
               </button>
+              {/* <button type="button" class="btn btn-outline-success " id="sub">
+                Submit
+              </button> */}
               {/* <button
                 type="button"
                 class="btn btn-primary btn-outline-success btn-lg"

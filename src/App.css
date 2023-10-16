@@ -81,6 +81,7 @@
 .container {
   font-size: 30px;
   font-style: italic;
+  max-width: 100rem;
 }
 .signimage {
   padding-left: 75%;
@@ -179,12 +180,8 @@
   height: 600px !important;
 } */
 .car {
-  align-items: center;
-  width: 1550px;
-  margin-top: 3%;
-  margin-bottom: 10%;
-  margin-left: 10%;
   border: 5px solid #555;
+  margin: 3rem 5rem;
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -399,18 +396,36 @@ select {
 .collcard2 {
   color: red;
 }
+
 .ex1 {
   border: 2px solid black;
   padding: 10spx;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
-  margin-right: 50%;
-  margin-top: 6%;
-  margin-left: 6%;
+  /* margin-right: 50%; */
+  /* margin-top: 6%; */
+  /* margin-left: 6%; */
   background-color: yellow;
   font-size: 45px;
   text-align: center;
+  margin: 3%;
+  width: 42rem;
+}
+.ex1-1 {
+  border: 2px solid black;
+  padding: 10spx;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  /* margin-right: 50%; */
+  /* margin-top: 6%; */
+  /* margin-left: 6%; */
+  background-color: yellow;
+  font-size: 45px;
+  text-align: center;
+  margin: 7%;
+  width: 42rem;
 }
 .pic1 {
   color: darkgreen;
@@ -516,7 +531,7 @@ select {
   background-color: #f9f9f9;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-top: 6%;
+  margin-top: 11rem;
   margin-left: 2.8%;
   background-color: darkkhaki;
 }
@@ -546,7 +561,7 @@ select {
   background-color: #f9f9f9;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-top: 6%;
+  margin-top: 11rem;
   margin-left: 2.8%;
   background-color: antiquewhite;
 }
@@ -632,7 +647,7 @@ select {
   background-color: #f9f9f9;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-top: 7%;
+  margin-top: 11rem;
   margin-left: 2.8%;
   background-color: antiquewhite;
 }
@@ -707,7 +722,7 @@ select {
   background-color: #f9f9f9;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-top: 7%;
+  margin-top: 11rem;
   margin-left: 2.8%;
   background-color: antiquewhite;
 }
@@ -765,7 +780,7 @@ select {
   border-radius: 10%;
   color: #000000;
   background-color: #dddddd;
-  margin-top: 20%;
+  /* margin-top: 20%; */
 }
 .nav-pills .nav-tem:not(:nth-last-child(1)) .nav-link {
   border-right: 1px solid white;
@@ -1413,5 +1428,142 @@ ul.team-icon li a.dribble {
 @media (max-width: 500px) {
   .mainbox {
     margin: 10rem 0rem;
+  }
+}
+
+/* SLIDER */
+.slider {
+  margin: 0 8rem;
+  height: 58rem;
+  /* margin: 0 auto; */
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 62rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* THIS creates the animation! */
+  transition: transform 1s;
+}
+
+.slide > img {
+  /* Only for images that have different size than slide */
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+}
+
+.slider__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+
+  border: none;
+  background: rgba(255, 255, 255, 0.7);
+  font-family: inherit;
+  color: #333;
+  border-radius: 50%;
+  height: 5.5rem;
+  width: 5.5rem;
+  font-size: 3.25rem;
+  cursor: pointer;
+}
+
+.slider__btn--left {
+  left: 6%;
+  transform: translate(-50%, -50%);
+}
+
+.slider__btn--right {
+  right: 6%;
+  transform: translate(50%, -50%);
+}
+
+.dots {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dots__dot {
+  border: none;
+  background-color: #b9b9b9;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-right: 1.75rem;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  /* Only necessary when overlying images */
+  /* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */
+}
+
+.dots__dot:last-child {
+  margin: 0;
+}
+
+.dots__dot--active {
+  background-color: black;
+  /* background-color: #888; */
+  opacity: 1;
+}
+pre code {
+  font-size: 2rem;
+}
+
+.p-0 {
+  padding: 0 !important;
+  gap: 1rem;
+}
+@media (max-width: 1300px) {
+  pre code {
+    font-size: 1.3rem;
+  }
+  .car {
+    margin: 3rem 3rem;
+  }
+}
+@media (max-width: 750px) {
+  pre code {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 500px) {
+  pre code {
+    font-size: 0.6rem;
+  }
+}
+@media (max-width: 800px) {
+  .ex1 {
+    font-size: 1.6rem;
+    width: 25rem;
+  }
+}
+@media (max-width: 500px) {
+  .ex1 {
+    font-size: 1.3rem;
+    width: 21rem;
+  }
+}
+@media (max-width: 1100px) {
+  .slider {
+    margin: 0 3rem;
+  }
+}
+@media (max-width: 800px) {
+  .slider {
+    margin: 0 1rem;
   }
 }

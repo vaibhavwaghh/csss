@@ -2,10 +2,14 @@ import React from "react";
 import { Carousel } from "react-bootstrap";
 import { Container, Row, Tabs, Tab } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-
+import dh1 from "./images/dh-1.jpg";
+import dh2 from "./images/dh-2.jpg";
+import dh3 from "./images/dh-3.jpg";
+import dh4 from "./images/dh-4.jpg";
+import dh5 from "./images/dh-5.jpg";
 const Doublehashing = () => {
   const codeString = `/*
   ** Handling of collision via open addressing
@@ -488,8 +492,8 @@ const Doublehashing = () => {
   const btnLeft = document.querySelector(".slider__btn--left");
   const btnRight = document.querySelector(".slider__btn--right");
   // const dotContainer = document.querySelector(".dots");
-  let currentSlide = 0;
-  const numberOfSlides = slides.length;
+
+  let [currentSlide, setCurrentSlide] = useState(0);
   function gotoSlide(currentSlideNumber) {
     slides.forEach(
       (s, i) =>
@@ -498,22 +502,28 @@ const Doublehashing = () => {
   }
   // gotoSlide(0);
   function nextSlide() {
+    let numberOfSlides = slides.length;
     if (currentSlide === numberOfSlides - 1) {
-      currentSlide = 0;
+      setCurrentSlide(0); // Reset to the first slide when at the last slide
     } else {
-      currentSlide++;
+      setCurrentSlide(currentSlide + 1); // Increment currentSlide by 1
     }
+
+    console.log(currentSlide);
     gotoSlide(currentSlide);
     // activateDot(currentSlide);
   }
+
   function prevSlide() {
+    let numberOfSlides = slides.length;
+
     if (currentSlide === 0) {
-      currentSlide = numberOfSlides - 1;
+      setCurrentSlide(numberOfSlides - 1);
     } else {
-      currentSlide--;
+      setCurrentSlide(currentSlide - 1);
     }
     gotoSlide(currentSlide);
-    // activateDot(currentSlide);
+    console.log(currentSlide);
   }
   return (
     <React.Fragment>
@@ -577,19 +587,19 @@ const Doublehashing = () => {
       </div>
       <div class="slider">
         <div class="slide">
-          <img src="https://i.ibb.co/4T5k0zk/1.jpg" alt="Photo 1" />
+          <img src={dh1} alt="Photo 1" />
         </div>
         <div class="slide">
-          <img src="https://i.ibb.co/9cgRK59/2.jpg" alt="Photo 2" />
+          <img src={dh2} alt="Photo 2" />
         </div>
         <div class="slide">
-          <img src="https://i.ibb.co/K9Yy5dh/3.jpg" alt="Photo 3" />
+          <img src={dh3} alt="Photo 3" />
         </div>
         <div class="slide">
-          <img src="https://i.ibb.co/5Rfx2V9/4.jpg" alt="Photo 4" />
+          <img src={dh4} alt="Photo 4" />
         </div>
         <div class="slide">
-          <img src="https://i.ibb.co/YkjHqft/5.jpg" alt="Photo 4" />
+          <img src={dh5} alt="Photo 4" />
         </div>
         <button onClick={prevSlide} class="slider__btn slider__btn--left">
           &larr;
@@ -597,7 +607,7 @@ const Doublehashing = () => {
         <button onClick={nextSlide} class="slider__btn slider__btn--right">
           &rarr;
         </button>
-        {/* <div class="dots"></div> */}
+        <div class="dots"></div>
       </div>
       <div className="car">
         {/* <Carousel data-bs-theme="dark">

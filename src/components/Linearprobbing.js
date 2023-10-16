@@ -4,7 +4,14 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Container, Row, Tabs, Tab } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { useState } from "react";
+import lp1 from "./images/lb-1.jpg";
+import lp2 from "./images/lb-2.jpg";
+import lp3 from "./images/lb-3.jpg";
+import lp4 from "./images/lb-4.jpg";
+import lp5 from "./images/lb-5.jpg";
+import lp6 from "./images/lb-6.jpg";
+import lp7 from "./images/lb-7.jpg";
 const Linearprobbing = () => {
   const codeString = `#include <bits/stdc++.h>
   using namespace std;
@@ -411,8 +418,8 @@ const Linearprobbing = () => {
   const btnLeft = document.querySelector(".slider__btn--left");
   const btnRight = document.querySelector(".slider__btn--right");
   // const dotContainer = document.querySelector(".dots");
-  let currentSlide = 0;
-  const numberOfSlides = slides.length;
+
+  let [currentSlide, setCurrentSlide] = useState(0);
   function gotoSlide(currentSlideNumber) {
     slides.forEach(
       (s, i) =>
@@ -420,23 +427,26 @@ const Linearprobbing = () => {
     );
   }
   // gotoSlide(0);
+  let numberOfSlides = slides.length;
   function nextSlide() {
     if (currentSlide === numberOfSlides - 1) {
-      currentSlide = 0;
+      setCurrentSlide(0); // Reset to the first slide when at the last slide
     } else {
-      currentSlide++;
+      setCurrentSlide(currentSlide + 1); // Increment currentSlide by 1
     }
+
+    console.log(currentSlide);
     gotoSlide(currentSlide);
     // activateDot(currentSlide);
   }
+
   function prevSlide() {
     if (currentSlide === 0) {
-      currentSlide = numberOfSlides - 1;
+      setCurrentSlide(numberOfSlides - 1);
     } else {
-      currentSlide--;
+      setCurrentSlide(currentSlide - 1);
     }
     gotoSlide(currentSlide);
-    // activateDot(currentSlide);
   }
   return (
     <React.Fragment>
@@ -470,25 +480,25 @@ const Linearprobbing = () => {
       </div>
       <div class="slider">
         <div class="slide">
-          <img src="https://i.ibb.co/Wkb2428/1.jpg" alt="Photo 1" />
+          <img src={lp1} alt="Photo 1" />
         </div>
         <div class="slide">
-          <img src="https://i.ibb.co/m0YZv6X/2.jpg" alt="Photo 2" />
+          <img src={lp2} alt="Photo 2" />
         </div>
         <div class="slide">
-          <img src="https://i.ibb.co/LQ1BpcH/3.jpg" alt="Photo 3" />
+          <img src={lp3} alt="Photo 3" />
         </div>
         <div class="slide">
-          <img src="https://i.ibb.co/Jvg9c1r/4.jpg" alt="Photo 4" />
+          <img src={lp4} alt="Photo 4" />
         </div>
         <div class="slide">
-          <img src="https://i.ibb.co/YkjHqft/5.jpg" alt="Photo 4" />
+          <img src={lp5} alt="Photo 4" />
         </div>
         <div class="slide">
-          <img src="https://i.ibb.co/982f2DT/6.jpg" alt="Photo 4" />
+          <img src={lp6} alt="Photo 4" />
         </div>
         <div class="slide">
-          <img src="https://i.ibb.co/GJ8HzHY/7.jpg" alt="Photo 4" />
+          <img src={lp7} alt="Photo 4" />
         </div>
         <button onClick={prevSlide} class="slider__btn slider__btn--left">
           &larr;

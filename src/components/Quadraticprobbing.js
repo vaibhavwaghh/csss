@@ -4,6 +4,11 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Container, Row, Tabs, Tab } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
+import qb1 from "./images/qp-1.jpg";
+import qb2 from "./images/qb-2.jpg";
+import qb3 from "./images/qb-3.jpg";
+import qb4 from "./images/qb-4.jpg";
 const Quadraticprobbing = () => {
   const codeString = `// C++ implementation of
   // the Quadratic Probing
@@ -222,8 +227,8 @@ const Quadraticprobbing = () => {
   const btnLeft = document.querySelector(".slider__btn--left");
   const btnRight = document.querySelector(".slider__btn--right");
   // const dotContainer = document.querySelector(".dots");
-  let currentSlide = 0;
-  const numberOfSlides = slides.length;
+
+  let [currentSlide, setCurrentSlide] = useState(0);
   function gotoSlide(currentSlideNumber) {
     slides.forEach(
       (s, i) =>
@@ -231,23 +236,26 @@ const Quadraticprobbing = () => {
     );
   }
   // gotoSlide(0);
+  let numberOfSlides = slides.length;
   function nextSlide() {
     if (currentSlide === numberOfSlides - 1) {
-      currentSlide = 0;
+      setCurrentSlide(0); // Reset to the first slide when at the last slide
     } else {
-      currentSlide++;
+      setCurrentSlide(currentSlide + 1); // Increment currentSlide by 1
     }
+
+    console.log(currentSlide);
     gotoSlide(currentSlide);
     // activateDot(currentSlide);
   }
+
   function prevSlide() {
     if (currentSlide === 0) {
-      currentSlide = numberOfSlides - 1;
+      setCurrentSlide(numberOfSlides - 1);
     } else {
-      currentSlide--;
+      setCurrentSlide(currentSlide - 1);
     }
     gotoSlide(currentSlide);
-    // activateDot(currentSlide);
   }
   return (
     <React.Fragment>
@@ -299,16 +307,16 @@ const Quadraticprobbing = () => {
       </div>
       <div class="slider">
         <div class="slide">
-          <img src="https://i.ibb.co/ggcV7bm/1.jpg" alt="Photo 1" />
+          <img src={qb1} alt="Photo 1" />
         </div>
         <div class="slide">
-          <img src="https://i.ibb.co/rsDmBtd/2.jpgs" alt="Photo 2" />
+          <img src={qb2} alt="Photo 2" />
         </div>
         <div class="slide">
-          <img src="https://i.ibb.co/prL2XWv/3.jpg" alt="Photo 3" />
+          <img src={qb3} alt="Photo 3" />
         </div>
         <div class="slide">
-          <img src="https://i.ibb.co/nrmNnFC/4.jpg" alt="Photo 4" />
+          <img src={qb4} alt="Photo 4" />
         </div>
         <button onClick={prevSlide} class="slider__btn slider__btn--left">
           &larr;
@@ -316,7 +324,7 @@ const Quadraticprobbing = () => {
         <button onClick={nextSlide} class="slider__btn slider__btn--right">
           &rarr;
         </button>
-        {/* <div class="dots"></div> */}
+        <div class="dots"></div>
       </div>
       <div className="car">
         {/* <Carousel data-bs-theme="dark">
