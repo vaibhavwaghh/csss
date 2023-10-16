@@ -15,7 +15,7 @@ import Wagh from "./components/Wagh";
 import Contact from "./components/Signup";
 import "./App.css";
 import Bstabs from "./components/Bstabs";
-
+import References from "./components/References";
 // const mongoose = require('mongoose');
 
 // const DB = 'mongodb+srv://sahil:<password>@hashingcluster.1vo3vj5.mongodb.net/HashingCluster?retryWrites=true&w=majority';
@@ -65,6 +65,9 @@ const App = () => {
         </Route>
         <Route path="/bstabs">
           <Bstabs />
+        </Route>
+        <Route path="/ref">
+          <References />
         </Route>
       </Switch>
     </>

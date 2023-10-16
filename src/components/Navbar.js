@@ -35,6 +35,9 @@ const Navbar = () => {
       case "double-hashing":
         window.location.href = "/doublehashing";
         break;
+      case "ref-s":
+        window.location.href = "/ref";
+        break;
       default:
         break;
     }
@@ -219,7 +222,8 @@ const Navbar = () => {
               <option value="quadratic-probbing">Quadratic Probing</option>
               <option value="double-hashing">Double hashing</option>
               <option value="separate-chaining">Open Hashing</option>
-              <option value="bucket-hashing">Bucket Hashing</option>{" "}
+              <option value="bucket-hashing">Bucket Hashing</option>
+              <option value="ref-s">References</option>{" "}
             </select>
           </div>{" "}
           <div>
