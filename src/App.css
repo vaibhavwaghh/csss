@@ -424,8 +424,10 @@ select {
   background-color: yellow;
   font-size: 45px;
   text-align: center;
-  margin: 7%;
+  margin-top: 10rem;
   width: 42rem;
+  margin-bottom: 3rem;
+  margin-left: 7rem;
 }
 .pic1 {
   color: darkgreen;
@@ -455,9 +457,7 @@ select {
 .crtimage {
   border: 5px solid;
   border-color: chartreuse;
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-bottom: 5%;
+  margin: 0 10%;
 }
 .CRTHeading {
   color: white;
@@ -468,19 +468,16 @@ select {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
-  margin-right: 20%;
-  margin-top: 2%;
-  margin-left: 20%;
-  margin-bottom: 20%;
+  /* margin-right: 20%; */
+  /* margin-top: 2%; */
+  /* margin-left: 20%; */
+  /* margin-bottom: 20%; */
   background-color: deeppink;
+  margin: 5%;
+  /* margin-bottom: 20%; */
 }
 .containert1 {
-  max-width: 1300px;
-  width: 100%;
-  margin-left: 17%;
-  margin-top: -15%;
-  padding: 0 20px;
-  margin-bottom: 5%;
+  margin: 0 5%;
 }
 .cardt1 {
   font-size: 30px;
@@ -1550,11 +1547,21 @@ pre code {
     font-size: 1.6rem;
     width: 25rem;
   }
+  .ex1-1 {
+    font-size: 1.3rem;
+    width: 21rem;
+    margin-left: 4rem;
+  }
 }
 @media (max-width: 500px) {
   .ex1 {
     font-size: 1.3rem;
     width: 21rem;
+  }
+  .ex1-1 {
+    font-size: 1.3rem;
+    width: 21rem;
+    margin-left: 2rem;
   }
 }
 @media (max-width: 1100px) {
@@ -1565,5 +1572,17 @@ pre code {
 @media (max-width: 800px) {
   .slider {
     margin: 0 1rem;
+  }
+}
+@media (max-width: 1000px) {
+  .CRTHeading,
+  .cards {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .CRTHeading,
+  .cards {
+    font-size: 1.2rem;
   }
 }

@@ -43,8 +43,8 @@ const Card1 = () => {
   const btnLeft = document.querySelector(".slider__btn--left");
   const btnRight = document.querySelector(".slider__btn--right");
   // const dotContainer = document.querySelector(".dots");
-  let currentSlide = 0;
-  const numberOfSlides = slides.length;
+
+  let [currentSlide, setCurrentSlide] = useState(0);
   function gotoSlide(currentSlideNumber) {
     slides.forEach(
       (s, i) =>
@@ -52,23 +52,26 @@ const Card1 = () => {
     );
   }
   // gotoSlide(0);
+  let numberOfSlides = slides.length;
   function nextSlide() {
     if (currentSlide === numberOfSlides - 1) {
-      currentSlide = 0;
+      setCurrentSlide(0); // Reset to the first slide when at the last slide
     } else {
-      currentSlide++;
+      setCurrentSlide(currentSlide + 1); // Increment currentSlide by 1
     }
+
+    console.log(currentSlide);
     gotoSlide(currentSlide);
     // activateDot(currentSlide);
   }
+
   function prevSlide() {
     if (currentSlide === 0) {
-      currentSlide = numberOfSlides - 1;
+      setCurrentSlide(numberOfSlides - 1);
     } else {
-      currentSlide--;
+      setCurrentSlide(currentSlide - 1);
     }
     gotoSlide(currentSlide);
-    // activateDot(currentSlide);
   }
   return (
     <React.Fragment>
@@ -181,7 +184,7 @@ const Card1 = () => {
             <div className="cards">
               {cards.map((card, i) => (
                 <div key={i} className="card">
-                  <h3>{card.title}</h3>
+                  <h1>{card.title}</h1>
                   <p>{card.text}</p>
 
                   <p>{card.link}</p>
