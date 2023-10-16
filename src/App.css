@@ -595,13 +595,17 @@ select {
 .dh1 {
   border: 2px solid black;
   padding: 10spx;
-
+  margin-right: 6%;
+  padding-left: 1%;
+  padding-right: 1%;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin: 10rem 5rem 7rem 5rem;
-  background-color: antiquewhite;
+  margin-top: 11rem;
+  margin-left: 2.8%;
+  background-color: darkkhaki;
 }
 .dh2 {
   border: 2px solid black;
@@ -659,7 +663,7 @@ select {
   background-color: #f9f9f9;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-top: 2%;
+  margin-top: 3rem;
   margin-left: 2.8%;
   background-color: darksalmon;
 }
@@ -674,7 +678,7 @@ select {
   background-color: #f9f9f9;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-top: 3%;
+  margin-top: 3rem;
   margin-left: 2.8%;
   background-color: aliceblue;
 }
@@ -689,7 +693,7 @@ select {
   background-color: #f9f9f9;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-top: 3%;
+  margin-top: 3rem;
   margin-left: 2.8%;
   background-color: cornsilk;
 }
@@ -704,7 +708,7 @@ select {
   background-color: #f9f9f9;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-top: 3%;
+  margin-top: 3rem;
   margin-left: 2.8%;
   background-color: darksalmon;
 }
@@ -734,7 +738,7 @@ select {
   background-color: #f9f9f9;
   font-size: 26px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-top: 2%;
+  margin-top: 2rem;
   margin-left: 2.8%;
   background-color: lightgrey;
 }
@@ -749,7 +753,7 @@ select {
   background-color: #f9f9f9;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-top: 3%;
+  margin-top: 3rem;
   margin-left: 2.8%;
   background-color: lightpink;
 }
@@ -764,7 +768,7 @@ select {
   background-color: #f9f9f9;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-top: 3%;
+  margin-top: 3rem;
   margin-left: 2.8%;
   background-color: lightcyan;
 }
@@ -1012,6 +1016,9 @@ ul.team-icon li a.dribble {
   text-align: center;
   font-size: 1.2rem;
 } */
+#img-open-address {
+  width: 100%;
+}
 .head1 {
   background-color: #61dafb;
   font-size: 2.5rem;

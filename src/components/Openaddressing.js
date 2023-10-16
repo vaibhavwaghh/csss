@@ -44,38 +44,44 @@ const Openaddressing = () => {
     <React.Fragment>
       <div className="op1">
         <h>
-          Open hashing, also known as separate chaining, is a collision
-          resolution technique used in hash tables or hash maps to handle
-          situations where multiple elements are mapped to the same hash index.
-          In a hash table, each element is associated with a key-value pair, and
-          the hash function is used to compute the index where the element
-          should be stored.
+          Open addressing is a collision resolution technique in which a method
+          known as probing is used to make efficient use of the hash table’s
+          space. All elements are stored in the hash table itself in open
+          addressing. Unlike chaining, multiple elements cannot be stored in the
+          same slot in the hash table.
           <br />
+          Probing : A collision is resolved by searching through alternate
+          locations in the hash table until either the target key is located and
+          the data is stored there itself. If some value is already present,
+          then the information is stored at the next available space.This method
+          is known as Probing. Open addressing is also known as Closed hashing.
           <br />
-          In open hashing, instead of overwriting elements that have the same
-          hash index, the technique allows multiple elements with the same hash
-          index to be stored in linked data structures, such as linked lists, at
-          that index. Each element that maps to the same index is appended to
-          the linked list at that location. This means that each bucket (index)
-          in the hash table can contain multiple elements, forming a chain of
-          elements that share the same hash index.
-          <br></br>
-          When searching for an element using its key, the hash table first
-          computes the hash index for the key and then follows the chain at that
-          index to find the element. The search complexity in open hashing is
-          directly related to the length of the chain at that particular index.
+          Note that the size of the hash table must be greater than or equal to
+          the total number of keys.
           <br />
+          <br /> Steps followed in Open addressing : <br />
+          <ul>
+            <li> Keys are generated using a hash function. </li>
+            <li>
+              {" "}
+              Go to the required generated index to find if it is empty or not.
+            </li>
+            <li>If the index is empty, then store data at that index.</li>
+            <li>
+              {" "}
+              If there is a value already present at that location, then store
+              data at the next available space.
+            </li>
+          </ul>
           <br />
-          In summary, open hashing is a technique to handle hash collisions by
-          chaining elements that have the same hash index into linked lists,
-          reducing the risk of overwriting and improving the overall efficiency
-          of hash table operations. It is one of the widely used collision
-          resolution methods alongside closed hashing (also known as open
-          addressing).
+          In this way, keys can be stored without any extra pointer or a linked
+          list. In open addressing technique, each slot is either filled with a
+          single key or left empty or nil.
+          <br />
         </h>
       </div>
       <div className="OHH">
-        <h>Open Addressing/Closed Addressing Types</h>
+        <h>Open Addressing Types</h>
       </div>
       <div class="CRTTypes">
         <section>
