@@ -227,7 +227,9 @@ const Navbar = () => {
             </select>
           </div>{" "}
           <div>
-            <h1 class="topic">Hashing in Data structure</h1>
+            <h2 class="topic">
+              E-Learning of Hashing Techniques in Data structure
+            </h2>
           </div>
           <nav class="main-nav">
             <ul class="header-list">

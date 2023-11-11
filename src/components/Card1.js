@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Carousel } from "react-bootstrap";
-
+import Slider from "./Slider";
+import hm1 from "./images/hm1.jpg";
+import hm2 from "./images/hm2.jpg";
+import hm3 from "./images/hm3.jpg";
+import hm4 from "./images/hm4.jpg";
+import hm5 from "./images/hm5.jpg";
 const Card1 = () => {
   const [cards] = useState([
     {
@@ -39,69 +44,13 @@ const Card1 = () => {
       text: "Open hashing, also known as separate chaining, is a collision resolution technique used in hash tables. Hash tables are data structures that store key-value pairs and provide efficient lookup, insertion, and deletion operations.",
     },
   ]);
-  const slides = document.querySelectorAll(".slide");
-  const btnLeft = document.querySelector(".slider__btn--left");
-  const btnRight = document.querySelector(".slider__btn--right");
-  // const dotContainer = document.querySelector(".dots");
-
-  let [currentSlide, setCurrentSlide] = useState(0);
-  function gotoSlide(currentSlideNumber) {
-    slides.forEach(
-      (s, i) =>
-        (s.style.transform = `translateX(${100 * (i - currentSlideNumber)}%)`)
-    );
-  }
-  // gotoSlide(0);
-  let numberOfSlides = slides.length;
-  function nextSlide() {
-    if (currentSlide === numberOfSlides - 1) {
-      setCurrentSlide(0); // Reset to the first slide when at the last slide
-    } else {
-      setCurrentSlide(currentSlide + 1); // Increment currentSlide by 1
-    }
-
-    console.log(currentSlide);
-    gotoSlide(currentSlide);
-    // activateDot(currentSlide);
-  }
-
-  function prevSlide() {
-    if (currentSlide === 0) {
-      setCurrentSlide(numberOfSlides - 1);
-    } else {
-      setCurrentSlide(currentSlide - 1);
-    }
-    gotoSlide(currentSlide);
-  }
+  const images = [hm1, hm2, hm3, hm4, hm5];
   return (
     <React.Fragment>
       <div className="ex1-1">
         <h>Example of Collision In Hashing</h>
       </div>
-      <div class="slider">
-        <div class="slide">
-          <img src="https://i.ibb.co/cctj1pP/1.jpg" alt="Photo 1" />
-        </div>
-        <div class="slide">
-          <img src="https://i.ibb.co/ynJptTP/2.jpg" alt="Photo 2" />
-        </div>
-        <div class="slide">
-          <img src="https://i.ibb.co/H2vH5v0/3.jpg" alt="Photo 3" />
-        </div>
-        <div class="slide">
-          <img src="https://i.ibb.co/wM00YX3/4.jpg" alt="Photo 4" />
-        </div>
-        <div class="slide">
-          <img src="https://i.ibb.co/Z1tLpvw/5.jpg" alt="Photo 4" />
-        </div>
-        <button onClick={prevSlide} class="slider__btn slider__btn--left">
-          &larr;
-        </button>
-        <button onClick={nextSlide} class="slider__btn slider__btn--right">
-          &rarr;
-        </button>
-        {/* <div class="dots"></div> */}
-      </div>
+      <Slider images={images} />
       <div className="car">
         {/* <Carousel data-bs-theme="dark">
       <Carousel.Item>

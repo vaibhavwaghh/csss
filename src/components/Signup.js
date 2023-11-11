@@ -33,11 +33,10 @@ function Signup() {
   function hRev(e) {
     setReview(e.target.value);
   }
-
   function save(e) {
     e.preventDefault();
     let data = { name, email, phone, college, year, division, review };
-    let url = "https://hashing-in-ds.onrender.com/send";
+    let url = "http://127.0.0.1:8500"; // Include the protocol
     axios
       .post(url, data)
       .then((res) => {
@@ -52,6 +51,7 @@ function Signup() {
       })
       .catch((err) => setMsg(`Issue is ${err}`));
   }
+
   return (
     <>
       <section className="signupclass">

@@ -4,7 +4,8 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Container, Row, Tabs, Tab } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 import lp1 from "./images/lb-1.jpg";
 import lp2 from "./images/lb-2.jpg";
 import lp3 from "./images/lb-3.jpg";
@@ -12,6 +13,7 @@ import lp4 from "./images/lb-4.jpg";
 import lp5 from "./images/lb-5.jpg";
 import lp6 from "./images/lb-6.jpg";
 import lp7 from "./images/lb-7.jpg";
+import Slider from "./Slider";
 const Linearprobbing = () => {
   const codeString = `#include <bits/stdc++.h>
   using namespace std;
@@ -414,40 +416,86 @@ const Linearprobbing = () => {
     print(h.isEmpty())
     print(h.get(2))
   `;
-  const slides = document.querySelectorAll(".slide");
-  const btnLeft = document.querySelector(".slider__btn--left");
-  const btnRight = document.querySelector(".slider__btn--right");
+  // const slides = document.querySelectorAll(".slide");
+  // const btnLeft = document.querySelector(".slider__btn--left");
+  // const btnRight = document.querySelector(".slider__btn--right");
+  // let [currentSlide, setCurrentSlide] = useState(0);
+  // let numberOfSlides = slides.length;
+
+  // useEffect(() => {
+  //   // Ensure slides are defined before proceeding
+  //   if (slides.length === 0) {
+  //     return;
+  //   }
+  //   console.log(currentSlide);
+  //   // Call gotoSlide with the initial value (0)
+  //   gotoSlide(currentSlide);
+  // }, [currentSlide, slides]);
+
+  // function gotoSlide(currentSlideNumber) {
+  //   slides.forEach(
+  //     (s, i) =>
+  //       (s.style.transform = `translateX(${100 * (i - currentSlideNumber)}%)`)
+  //   );
+  // }
+
+  // function nextSlide() {
+  //   if (currentSlide === numberOfSlides - 1) {
+  //     setCurrentSlide(0);
+  //   } else {
+  //     setCurrentSlide(currentSlide + 1);
+  //   }
+  // }
+
+  // function prevSlide() {
+  //   if (currentSlide === 0) {
+  //     setCurrentSlide(numberOfSlides - 1);
+  //   } else {
+  //     setCurrentSlide(currentSlide - 1);
+  //   }
+  // }
+
+  // Remove the call to gotoSlide here
+  // console.log(currentSlide);
+  // gotoSlide(currentSlide);
+  // }
+
+  // Remove the call to gotoSlide here
+  // gotoSlide(currentSlide);
+  // }
+
+  // Add this useEffect to handle the slide transition after state update
+  // useEffect(() => {
+  //   gotoSlide(currentSlide);
+  // }, [currentSlide]);
+  // useEffect(() => {
+  //   gotoSlide(0); // Set the initial slide to 0
+  // }, []);
   // const dotContainer = document.querySelector(".dots");
 
-  let [currentSlide, setCurrentSlide] = useState(0);
-  function gotoSlide(currentSlideNumber) {
-    slides.forEach(
-      (s, i) =>
-        (s.style.transform = `translateX(${100 * (i - currentSlideNumber)}%)`)
-    );
-  }
   // gotoSlide(0);
-  let numberOfSlides = slides.length;
-  function nextSlide() {
-    if (currentSlide === numberOfSlides - 1) {
-      setCurrentSlide(0); // Reset to the first slide when at the last slide
-    } else {
-      setCurrentSlide(currentSlide + 1); // Increment currentSlide by 1
-    }
+  // let numberOfSlides = slides.length;
+  // function nextSlide() {
+  //   if (currentSlide === numberOfSlides - 1) {
+  //     setCurrentSlide(0); // Reset to the first slide when at the last slide
+  //   } else {
+  //     setCurrentSlide(currentSlide + 1); // Increment currentSlide by 1
+  //   }
 
-    console.log(currentSlide);
-    gotoSlide(currentSlide);
-    // activateDot(currentSlide);
-  }
+  //   console.log(currentSlide);
+  //   gotoSlide(currentSlide);
+  //   // activateDot(currentSlide);
+  // }
 
-  function prevSlide() {
-    if (currentSlide === 0) {
-      setCurrentSlide(numberOfSlides - 1);
-    } else {
-      setCurrentSlide(currentSlide - 1);
-    }
-    gotoSlide(currentSlide);
-  }
+  // function prevSlide() {
+  //   if (currentSlide === 0) {
+  //     setCurrentSlide(numberOfSlides - 1);
+  //   } else {
+  //     setCurrentSlide(currentSlide - 1);
+  //   }
+  //   gotoSlide(currentSlide);
+  // }
+  const images = [lp1, lp2, lp3, lp4, lp5, lp6, lp7];
   return (
     <React.Fragment>
       <div className="lp1">
@@ -478,36 +526,7 @@ const Linearprobbing = () => {
       <div className="ex1">
         <h>Example of Linear Probbing</h>
       </div>
-      <div class="slider">
-        <div class="slide">
-          <img src={lp1} alt="Photo 1" />
-        </div>
-        <div class="slide">
-          <img src={lp2} alt="Photo 2" />
-        </div>
-        <div class="slide">
-          <img src={lp3} alt="Photo 3" />
-        </div>
-        <div class="slide">
-          <img src={lp4} alt="Photo 4" />
-        </div>
-        <div class="slide">
-          <img src={lp5} alt="Photo 4" />
-        </div>
-        <div class="slide">
-          <img src={lp6} alt="Photo 4" />
-        </div>
-        <div class="slide">
-          <img src={lp7} alt="Photo 4" />
-        </div>
-        <button onClick={prevSlide} class="slider__btn slider__btn--left">
-          &larr;
-        </button>
-        <button onClick={nextSlide} class="slider__btn slider__btn--right">
-          &rarr;
-        </button>
-        <div class="dots"></div>
-      </div>
+      <Slider images={images} />
       <div className="car">
         {/* <Carousel data-bs-theme="dark">
           <Carousel.Item>

@@ -9,6 +9,7 @@ import qb1 from "./images/qp-1.jpg";
 import qb2 from "./images/qb-2.jpg";
 import qb3 from "./images/qb-3.jpg";
 import qb4 from "./images/qb-4.jpg";
+import Slider from "./Slider.js";
 const Quadraticprobbing = () => {
   const codeString = `// C++ implementation of
   // the Quadratic Probing
@@ -223,40 +224,41 @@ const Quadraticprobbing = () => {
   
  
   `;
-  const slides = document.querySelectorAll(".slide");
-  const btnLeft = document.querySelector(".slider__btn--left");
-  const btnRight = document.querySelector(".slider__btn--right");
-  // const dotContainer = document.querySelector(".dots");
+  // const slides = document.querySelectorAll(".slide");
+  // const btnLeft = document.querySelector(".slider__btn--left");
+  // const btnRight = document.querySelector(".slider__btn--right");
+  // // const dotContainer = document.querySelector(".dots");
 
-  let [currentSlide, setCurrentSlide] = useState(0);
-  function gotoSlide(currentSlideNumber) {
-    slides.forEach(
-      (s, i) =>
-        (s.style.transform = `translateX(${100 * (i - currentSlideNumber)}%)`)
-    );
-  }
-  // gotoSlide(0);
-  let numberOfSlides = slides.length;
-  function nextSlide() {
-    if (currentSlide === numberOfSlides - 1) {
-      setCurrentSlide(0); // Reset to the first slide when at the last slide
-    } else {
-      setCurrentSlide(currentSlide + 1); // Increment currentSlide by 1
-    }
+  // let [currentSlide, setCurrentSlide] = useState(0);
+  // function gotoSlide(currentSlideNumber) {
+  //   slides.forEach(
+  //     (s, i) =>
+  //       (s.style.transform = `translateX(${100 * (i - currentSlideNumber)}%)`)
+  //   );
+  // }
+  // // gotoSlide(0);
+  // let numberOfSlides = slides.length;
+  // function nextSlide() {
+  //   if (currentSlide === numberOfSlides - 1) {
+  //     setCurrentSlide(0); // Reset to the first slide when at the last slide
+  //   } else {
+  //     setCurrentSlide(currentSlide + 1); // Increment currentSlide by 1
+  //   }
 
-    console.log(currentSlide);
-    gotoSlide(currentSlide);
-    // activateDot(currentSlide);
-  }
+  //   console.log(currentSlide);
+  //   gotoSlide(currentSlide);
+  //   // activateDot(currentSlide);
+  // }
 
-  function prevSlide() {
-    if (currentSlide === 0) {
-      setCurrentSlide(numberOfSlides - 1);
-    } else {
-      setCurrentSlide(currentSlide - 1);
-    }
-    gotoSlide(currentSlide);
-  }
+  // function prevSlide() {
+  //   if (currentSlide === 0) {
+  //     setCurrentSlide(numberOfSlides - 1);
+  //   } else {
+  //     setCurrentSlide(currentSlide - 1);
+  //   }
+  //   gotoSlide(currentSlide);
+  // }
+  const images = [qb1, qb2, qb3, qb4];
   return (
     <React.Fragment>
       <div className="qp1">
@@ -305,27 +307,7 @@ const Quadraticprobbing = () => {
       <div className="ex1">
         <h>Example of Quadratic Probbing</h>
       </div>
-      <div class="slider">
-        <div class="slide">
-          <img src={qb1} alt="Photo 1" />
-        </div>
-        <div class="slide">
-          <img src={qb2} alt="Photo 2" />
-        </div>
-        <div class="slide">
-          <img src={qb3} alt="Photo 3" />
-        </div>
-        <div class="slide">
-          <img src={qb4} alt="Photo 4" />
-        </div>
-        <button onClick={prevSlide} class="slider__btn slider__btn--left">
-          &larr;
-        </button>
-        <button onClick={nextSlide} class="slider__btn slider__btn--right">
-          &rarr;
-        </button>
-        <div class="dots"></div>
-      </div>
+      <Slider images={images} />
       <div className="car">
         {/* <Carousel data-bs-theme="dark">
       <Carousel.Item>

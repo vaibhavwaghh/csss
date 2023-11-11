@@ -12,7 +12,7 @@ import sc4 from "./images/sc-4.jpg";
 import sc5 from "./images/sc-5.jpg";
 import sc6 from "./images/sc-6.jpg";
 import sc7 from "./images/sc-7.jpg";
-
+import Slider from "./Slider";
 const Separatechaining = () => {
   const codeString = `#include <stdio.h>
   #include <stdlib.h>
@@ -383,40 +383,7 @@ const Separatechaining = () => {
   return 0;
   }
   `;
-  const slides = document.querySelectorAll(".slide");
-  const btnLeft = document.querySelector(".slider__btn--left");
-  const btnRight = document.querySelector(".slider__btn--right");
-  // const dotContainer = document.querySelector(".dots");
-
-  let [currentSlide, setCurrentSlide] = useState(0);
-  function gotoSlide(currentSlideNumber) {
-    slides.forEach(
-      (s, i) =>
-        (s.style.transform = `translateX(${100 * (i - currentSlideNumber)}%)`)
-    );
-  }
-  // gotoSlide(0);
-  let numberOfSlides = slides.length;
-  function nextSlide() {
-    if (currentSlide === numberOfSlides - 1) {
-      setCurrentSlide(0); // Reset to the first slide when at the last slide
-    } else {
-      setCurrentSlide(currentSlide + 1); // Increment currentSlide by 1
-    }
-
-    console.log(currentSlide);
-    gotoSlide(currentSlide);
-    // activateDot(currentSlide);
-  }
-
-  function prevSlide() {
-    if (currentSlide === 0) {
-      setCurrentSlide(numberOfSlides - 1);
-    } else {
-      setCurrentSlide(currentSlide - 1);
-    }
-    gotoSlide(currentSlide);
-  }
+  const images = [sc1, sc2, sc3, sc4, sc5, sc6, sc7];
   return (
     <React.Fragment>
       <div className="sc1">
@@ -534,36 +501,7 @@ const Separatechaining = () => {
       <div className="ex1">
         <h>Example of Collision In Hashing</h>
       </div>
-      <div class="slider">
-        <div class="slide">
-          <img src={sc1} alt="Photo 1" />
-        </div>
-        <div class="slide">
-          <img src={sc2} alt="Photo 2" />
-        </div>
-        <div class="slide">
-          <img src={sc3} alt="Photo 3" />
-        </div>
-        <div class="slide">
-          <img src={sc4} alt="Photo 4" />
-        </div>
-        <div class="slide">
-          <img src={sc5} alt="Photo 4" />
-        </div>
-        <div class="slide">
-          <img src={sc6} alt="Photo 4" />
-        </div>
-        <div class="slide">
-          <img src={sc7} alt="Photo 4" />
-        </div>
-        <button onClick={prevSlide} class="slider__btn slider__btn--left">
-          &larr;
-        </button>
-        <button onClick={nextSlide} class="slider__btn slider__btn--right">
-          &rarr;
-        </button>
-        {/* <div class="dots"></div> */}
-      </div>
+      <Slider images={images} />
       <div className="car">
         {/* <Carousel data-bs-theme="dark">
           <Carousel.Item>
